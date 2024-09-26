@@ -1,2 +1,2 @@
-# iauv_motion_planner
-Framework for general auv motion planning in 3D space using OMPL.
+# iauv_demo
+ metapackage for a general demo of iauv tasks (motion planning, intervention). 
