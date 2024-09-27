@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>iauv_motion_planner</name>
+  <version>0.0.0</version>
+  <description>The iauv_motion_planner package</description>
+
+  <!-- <maintainer email="jane.doe@example.com">Jane Doe</maintainer> -->
+  <maintainer email="srealper@todo.todo">srealper</maintainer>
+  <!--   BSD, MIT, Boost Software License, GPLv2, GPLv3, LGPLv2.1, LGPLv3 -->
+  <license>TODO</license>
+  <!-- <url type="website">http://wiki.ros.org/hrov_martech2023</url> -->
+  <!-- <author email="jane.doe@example.com">Jane Doe</author> -->
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <depend>roscpp</depend>
+  <depend>rospy</depend>
+  <depend>tf</depend>
+  <depend>tf2_ros</depend>
+
+  <depend>eigen</depend>
+  <depend>sensor_msgs</depend>
+  <depend>pluginlib</depend>
+
+  <depend>visualization_msgs</depend>
+  <depend>rviz_visual_tools</depend>
+
+  <depend>eigen_conversions</depend>
+  <depend>octomap_ros</depend>
+  <depend>octomap_msgs</depend>
+
+  <depend>geometry_msgs</depend>
+
+  <depend>nav_msgs</depend>
+
+  <build_depend>message_generation</build_depend>
+  <exec_depend>message_runtime</exec_depend>
+
+  <!-- The export tag contains other, unspecified, tags -->
+  <export>
+    <!-- Other tools can request additional information be placed here -->
+
+  </export>
+</package>

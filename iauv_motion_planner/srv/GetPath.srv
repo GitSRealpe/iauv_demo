@@ -1,0 +1,20 @@
+# Get a path from the current position to the goal Pose 
+
+# The start pose for the plan
+geometry_msgs/Pose start
+
+# The final pose of the goal position
+geometry_msgs/Pose goal
+
+iauv_motion_planner/PlannerParam[] params
+
+uint8 SIMPLE=1
+uint8 SCANNER=2
+uint8 CIRCULAR=3
+uint8 RRT=4
+
+# Type of planner to be used
+uint8 planner
+---
+bool success
+nav_msgs/Path path

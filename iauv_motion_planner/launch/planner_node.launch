@@ -1,0 +1,8 @@
+<launch>
+
+    <group ns="/">
+        <node name="iauv_motion_planner" pkg="iauv_motion_planner" type="iauv_motion_planner_node" output="screen"/>
+    </group>
+
+    <node pkg="rviz" type="rviz" name="rviz" args="-d $(find iauv_motion_planner)/config/rviz/viz.rviz"/>
+</launch>

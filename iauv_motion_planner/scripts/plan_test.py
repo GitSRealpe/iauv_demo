@@ -1,0 +1,64 @@
+#!/usr/bin/env python
+
+import rospy
+from iauv_motion_planner.srv import GetPath, GetPathRequest
+from iauv_motion_planner.msg import PlannerParam
+
+
+def call_service():
+    # Initialize the ROS node
+    rospy.init_node("service_caller_node")
+
+    # Create a service proxy
+    rospy.wait_for_service(
+        "/iauv_motion_planner/getPath"
+    )  # Wait until the service is available
+    try:
+        service_proxy = rospy.ServiceProxy(
+            "/iauv_motion_planner/getPath", GetPath
+        )  # Replace with your actual service type
+
+        req = GetPathRequest()
+        # req.planner = GetPathRequest.CIRCULAR
+        # param = PlannerParam()
+        # param.key = "radius"
+        # param.value = "5"
+
+        req.planner = GetPathRequest.SCANNER
+        param = PlannerParam()
+        param.key = "width"
+        param.value = "7"
+
+        req.params.append(param)
+
+        param = PlannerParam()
+        param.key = "length"
+        param.value = "5"
+
+        req.params.append(param)
+
+        # center of request
+        req.start.position.x = 1
+        req.start.position.y = 1
+        req.start.position.z = 1
+        req.start.orientation.w = 1
+        req.goal.position.x = 0
+        req.goal.position.y = 0
+        req.goal.position.z = 0
+        # req.goal.orientation.w = 0.707
+        # req.goal.orientation.z = 0.707
+        # req.goal.orientation.w = 0.924
+        # req.goal.orientation.z = 0.383
+        req.goal.orientation.w = 1
+        req.goal.orientation.z = 0
+
+        # Call the service
+        response = service_proxy(req)
+        rospy.loginfo(f"Service response: {response}")  # Log the response
+
+    except rospy.ServiceException as e:
+        rospy.logerr(f"Service call failed: {e}")
+
+
+if __name__ == "__main__":
+    call_service()
