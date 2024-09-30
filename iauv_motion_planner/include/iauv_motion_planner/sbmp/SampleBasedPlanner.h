@@ -2,7 +2,7 @@
 #define SBMPLANNER_
 
 #include <iauv_motion_planner/Planner.h>
-#include <iauv_motion_planner/sbmp/Validator.h>
+// #include <iauv_motion_planner/sbmp/Validator.h>
 
 // ompl stuff
 #include <ompl/base/StateSpace.h>
@@ -38,7 +38,7 @@ namespace iauv_motion_planner
 
         CollObjPtr mapColl;
 
-        ValidatorPtr val_ptr;
+        // ValidatorPtr val_ptr;
     };
 
 } // namespace iauv_motion_planner
