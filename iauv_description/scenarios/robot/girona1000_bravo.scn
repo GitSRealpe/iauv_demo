@@ -306,8 +306,8 @@
 			</internal_part>
 		</base_link>
 
-		<!-- Right Reach Bravo 7 -->
-		<link name="RB7RightBaseLink" type="model" physics="submerged">
+		<!-- Reach Bravo 7 -->
+		<link name="RB7BaseLink" type="model" physics="submerged">
 			<physical>
 				<mesh
 					filename="$(find blueprintlab_reachbravo7_manipulator_description)/resources/meshes/manipulator/base_link_phy.obj"
@@ -324,7 +324,7 @@
 			<look name="rb7_black"/>
 		</link>
 
-		<link name="RB7RightLink1" type="model" physics="submerged">
+		<link name="RB7Link1" type="model" physics="submerged">
 			<physical>
 				<mesh
 					filename="$(find blueprintlab_reachbravo7_manipulator_description)/resources/meshes/manipulator/link1_phy.obj"
@@ -341,7 +341,7 @@
 			<look name="rb7_black"/>
 		</link>
 
-		<link name="RB7RightLink2" type="model" physics="submerged">
+		<link name="RB7Link2" type="model" physics="submerged">
 			<physical>
 				<mesh
 					filename="$(find blueprintlab_reachbravo7_manipulator_description)/resources/meshes/manipulator/link2_phy.obj"
@@ -358,7 +358,7 @@
 			<look name="rb7_black"/>
 		</link>
 
-		<link name="RB7RightLink3" type="model" physics="submerged">
+		<link name="RB7Link3" type="model" physics="submerged">
 			<physical>
 				<mesh
 					filename="$(find blueprintlab_reachbravo7_manipulator_description)/resources/meshes/manipulator/link3_phy.obj"
@@ -375,7 +375,7 @@
 			<look name="rb7_black"/>
 		</link>
 
-		<link name="RB7RightLink4" type="model" physics="submerged">
+		<link name="RB7Link4" type="model" physics="submerged">
 			<physical>
 				<mesh
 					filename="$(find blueprintlab_reachbravo7_manipulator_description)/resources/meshes/manipulator/link4_phy.obj"
@@ -392,7 +392,7 @@
 			<look name="rb7_black"/>
 		</link>
 
-		<link name="RB7RightLink5" type="model" physics="submerged">
+		<link name="RB7Link5" type="model" physics="submerged">
 			<physical>
 				<mesh
 					filename="$(find blueprintlab_reachbravo7_manipulator_description)/resources/meshes/manipulator/link5_phy.obj"
@@ -409,7 +409,7 @@
 			<look name="rb7_black"/>
 		</link>
 
-		<link name="RB7RightLink6" type="model" physics="submerged">
+		<link name="RB7Link6" type="model" physics="submerged">
 			<physical>
 				<mesh
 					filename="$(find blueprintlab_reachbravo7_manipulator_description)/resources/meshes/manipulator/link6_phy.obj"
@@ -426,7 +426,7 @@
 			<look name="rb7_black"/>
 		</link>
 
-		<link name="RB7RightJawsBase" type="model" physics="submerged">
+		<link name="RB7JawsBase" type="model" physics="submerged">
 			<physical>
 				<mesh
 					filename="$(find blueprintlab_reachbravo7_manipulator_description)/resources/meshes/end_effectors/jaws/jaws_base_phy.obj"
@@ -453,16 +453,16 @@
 		</link>
 
 		<joint name="RB7jawstoCamR" type="fixed">
-			<parent name="RB7RightJawsBase"/>
+			<parent name="RB7JawsBase"/>
 			<child name="CamRLink"/>
 			<origin rpy="0.0 0.0 0" xyz="0.0 0.0 0.15"/>
 		</joint>
 
-		<sensor name="bravo_right/gripper_camera" type="camera" rate="10.0">
+		<sensor name="bravo/gripper_camera" type="camera" rate="10.0">
 			<link name="CamRLink"/>
 			<origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
 			<specs resolution_x="640" resolution_y="480" horizontal_fov="30.0"/>
-			<ros_publisher topic="/$(arg robot_name)/bravo_right/camera"/>
+			<ros_publisher topic="/$(arg robot_name)/bravo/camera"/>
 		</sensor>
 
 		<!-- cam_gripper ligth -->
@@ -473,11 +473,11 @@
 			<!-- <color temperature="27000.0"/> -->
 			<color rgb="1.0 1.0 1.0"/>
 			<origin xyz="0.0 0.0 0.05" rpy="0.0 0.0 0.0"/>
-			<link name="RB7RightJawsBase"/>
+			<link name="RB7JawsBase"/>
 		</light>
 
-		<link name="RB7RightFingerSmall" type="compound" physics="submerged">
-			<external_part name="RB7RightFingerSmallP1" type="model" physics="submerged"
+		<link name="RB7FingerSmall" type="compound" physics="submerged">
+			<external_part name="RB7FingerSmallP1" type="model" physics="submerged"
 				buoyant="true">
 				<physical>
 					<mesh
@@ -496,7 +496,7 @@
 				<compound_transform rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
 			</external_part>
 
-			<external_part name="RB7RightFingerSmallP2" type="model" physics="submerged"
+			<external_part name="RB7FingerSmallP2" type="model" physics="submerged"
 				buoyant="true">
 				<physical>
 					<mesh
@@ -515,7 +515,7 @@
 				<compound_transform rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
 			</external_part>
 
-			<external_part name="RB7RightFingerSmallP3" type="model" physics="submerged"
+			<external_part name="RB7FingerSmallP3" type="model" physics="submerged"
 				buoyant="true">
 				<physical>
 					<mesh
@@ -534,7 +534,7 @@
 				<compound_transform rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
 			</external_part>
 
-			<external_part name="RB7RightFingerSmallP4" type="model" physics="submerged"
+			<external_part name="RB7FingerSmallP4" type="model" physics="submerged"
 				buoyant="true">
 				<physical>
 					<mesh
@@ -554,8 +554,8 @@
 			</external_part>
 		</link>
 
-		<link name="RB7RightFingerLarge" type="compound" physics="submerged">
-			<external_part name="RB7RightFingerLargeP1" type="model" physics="submerged"
+		<link name="RB7FingerLarge" type="compound" physics="submerged">
+			<external_part name="RB7FingerLargeP1" type="model" physics="submerged"
 				buoyant="true">
 				<physical>
 					<mesh
@@ -574,7 +574,7 @@
 				<compound_transform rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
 			</external_part>
 
-			<external_part name="RB7RightFingerLargeP2" type="model" physics="submerged"
+			<external_part name="RB7FingerLargeP2" type="model" physics="submerged"
 				buoyant="true">
 				<physical>
 					<mesh
@@ -593,7 +593,7 @@
 				<compound_transform rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
 			</external_part>
 
-			<external_part name="RB7RightFingerLargeP3" type="model" physics="submerged"
+			<external_part name="RB7FingerLargeP3" type="model" physics="submerged"
 				buoyant="true">
 				<physical>
 					<mesh
@@ -612,7 +612,7 @@
 				<compound_transform rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
 			</external_part>
 
-			<external_part name="RB7RightFingerLargeP4" type="model" physics="submerged"
+			<external_part name="RB7FingerLargeP4" type="model" physics="submerged"
 				buoyant="true">
 				<physical>
 					<mesh
@@ -632,77 +632,77 @@
 			</external_part>
 		</link>
 
-		<joint name="VehicleToRB7Right" type="fixed">
+		<joint name="VehicleToRB7" type="fixed">
 			<parent name="Vehicle"/>
-			<child name="RB7RightBaseLink"/>
+			<child name="RB7BaseLink"/>
 			<origin rpy="${pi} 0.0 0.175" xyz="0.7322 0.1382 0.485"/>
 		</joint>
 
-		<joint name="bravo_right/joint1" type="revolute">
-			<parent name="RB7RightBaseLink"/>
-			<child name="RB7RightLink1"/>
+		<joint name="bravo/joint1" type="revolute">
+			<parent name="RB7BaseLink"/>
+			<child name="RB7Link1"/>
 			<origin rpy="${pi} 0.0 0.0" xyz="0.0 0.0 0.0"/>
 			<axis xyz="0 0 -1"/>
 			<limits min="-3.1" max="3.1"/>
 		</joint>
 
-		<joint name="bravo_right/joint2" type="revolute">
-			<parent name="RB7RightLink1"/>
-			<child name="RB7RightLink2"/>
+		<joint name="bravo/joint2" type="revolute">
+			<parent name="RB7Link1"/>
+			<child name="RB7Link2"/>
 			<origin rpy="${pi/2} 0.0 0.0" xyz="0.046 0.0 0.0674"/>
 			<axis xyz="0 0 1"/>
 			<limits min="${-pi/2}" max="${pi/2}"/>
 		</joint>
 
-		<joint name="bravo_right/joint3" type="revolute">
-			<parent name="RB7RightLink2"/>
-			<child name="RB7RightLink3"/>
+		<joint name="bravo/joint3" type="revolute">
+			<parent name="RB7Link2"/>
+			<child name="RB7Link3"/>
 			<origin rpy="0.0 0.0 0.0" xyz="0.2906 0.0 0.0"/>
 			<axis xyz="0 0 1"/>
 			<limits min="${-pi/2}" max="${pi/2}"/>
 		</joint>
 
-		<joint name="bravo_right/joint4" type="revolute">
-			<parent name="RB7RightLink3"/>
-			<child name="RB7RightLink4"/>
+		<joint name="bravo/joint4" type="revolute">
+			<parent name="RB7Link3"/>
+			<child name="RB7Link4"/>
 			<origin rpy="${-pi/2} 0 ${pi}" xyz="0.0408 -0.09695 0"/>
 			<axis xyz="0 0 -1"/>
 			<limits min="-3.1" max="3.1"/>
 		</joint>
 
-		<joint name="bravo_right/joint5" type="revolute">
-			<parent name="RB7RightLink4"/>
-			<child name="RB7RightLink5"/>
+		<joint name="bravo/joint5" type="revolute">
+			<parent name="RB7Link4"/>
+			<child name="RB7Link5"/>
 			<origin rpy="${-pi/2} 0 0" xyz="-0.0408 0 0.063"/>
 			<axis xyz="0 0 1"/>
 			<limits min="${-pi}" max="0.0"/>
 		</joint>
 
-		<joint name="bravo_right/joint6" type="revolute">
-			<parent name="RB7RightLink5"/>
-			<child name="RB7RightLink6"/>
+		<joint name="bravo/joint6" type="revolute">
+			<parent name="RB7Link5"/>
+			<child name="RB7Link6"/>
 			<origin rpy="${pi/2} 0 0" xyz="0.0408 -0.08863 0"/>
 			<axis xyz="0 0 -1"/>
 			<limits min="${-pi}" max="${pi}"/>
 		</joint>
 
-		<joint name="bravo_right/jaws_base" type="fixed">
-			<parent name="RB7RightLink6"/>
-			<child name="RB7RightJawsBase"/>
+		<joint name="bravo/jaws_base" type="fixed">
+			<parent name="RB7Link6"/>
+			<child name="RB7JawsBase"/>
 			<origin rpy="0 0 ${pi/2}" xyz="0 0 0"/>
 		</joint>
 
-		<joint name="bravo_right/finger_small_joint" type="revolute">
-			<parent name="RB7RightJawsBase"/>
-			<child name="RB7RightFingerSmall"/>
+		<joint name="bravo/finger_small_joint" type="revolute">
+			<parent name="RB7JawsBase"/>
+			<child name="RB7FingerSmall"/>
 			<origin rpy="0 0 ${pi}" xyz="0.0269 0.0 0.15976"/>
 			<axis xyz="0 1 0"/>
 			<limits min="-1.0" max="0.0"/>
 		</joint>
 
-		<joint name="bravo_right/finger_large_joint" type="revolute">
-			<parent name="RB7RightJawsBase"/>
-			<child name="RB7RightFingerLarge"/>
+		<joint name="bravo/finger_large_joint" type="revolute">
+			<parent name="RB7JawsBase"/>
+			<child name="RB7FingerLarge"/>
 			<origin rpy="0 0 ${pi}" xyz="-0.0269 0.0 0.15976"/>
 			<axis xyz="0 1 0"/>
 			<limits min="0.0" max="1.0"/>
@@ -865,57 +865,57 @@
 		</actuator>
 
 		<!-- Servos -->
-		<actuator name="Servo1RB7Right" type="servo">
-			<joint name="bravo_right/joint1"/>
+		<actuator name="Servo1RB7" type="servo">
+			<joint name="bravo/joint1"/>
 			<controller position_gain="1.0" velocity_gain="1.0" max_torque="100.0" max_velocity="1"/>
 		</actuator>
 
-		<actuator name="Servo2RB7Right" type="servo">
-			<joint name="bravo_right/joint2"/>
+		<actuator name="Servo2RB7" type="servo">
+			<joint name="bravo/joint2"/>
 			<controller position_gain="1.0" velocity_gain="1.0" max_torque="100.0" max_velocity="1"/>
 		</actuator>
 
-		<actuator name="Servo3RB7Right" type="servo">
-			<joint name="bravo_right/joint3"/>
+		<actuator name="Servo3RB7" type="servo">
+			<joint name="bravo/joint3"/>
 			<controller position_gain="1.0" velocity_gain="1.0" max_torque="100.0" max_velocity="1"/>
 		</actuator>
 
-		<actuator name="Servo4RB7Right" type="servo">
-			<joint name="bravo_right/joint4"/>
+		<actuator name="Servo4RB7" type="servo">
+			<joint name="bravo/joint4"/>
 			<controller position_gain="1.0" velocity_gain="1.0" max_torque="100.0" max_velocity="1"/>
 		</actuator>
 
-		<actuator name="Servo5RB7Right" type="servo">
-			<joint name="bravo_right/joint5"/>
+		<actuator name="Servo5RB7" type="servo">
+			<joint name="bravo/joint5"/>
 			<controller position_gain="1.0" velocity_gain="1.0" max_torque="100.0" max_velocity="1"/>
 		</actuator>
 
-		<actuator name="Servo6RB7Right" type="servo">
-			<joint name="bravo_right/joint6"/>
+		<actuator name="Servo6RB7" type="servo">
+			<joint name="bravo/joint6"/>
 			<controller position_gain="1.0" velocity_gain="1.0" max_torque="100.0" max_velocity="1"/>
 		</actuator>
 
-		<actuator name="ServoFingerSmallRB7Right" type="servo">
-			<joint name="bravo_right/finger_small_joint"/>
+		<actuator name="ServoFingerSmallRB7" type="servo">
+			<joint name="bravo/finger_small_joint"/>
 			<controller position_gain="1.0" velocity_gain="1.0" max_torque="1000.0" max_velocity="1"/>
 		</actuator>
 
-		<actuator name="ServoFingerLargeRB7Right" type="servo">
-			<joint name="bravo_right/finger_large_joint"/>
+		<actuator name="ServoFingerLargeRB7" type="servo">
+			<joint name="bravo/finger_large_joint"/>
 			<controller position_gain="1.0" velocity_gain="1.0" max_torque="1000.0" max_velocity="1"/>
 		</actuator>
 
 		<world_transform rpy="0.0 0.0 $(arg start_yaw)" xyz="$(arg start_position)"/>
 
-		<ros_control_interface namespace="/$(arg robot_name)/bravo_right" type="velocity">
-			<joint name="bravo_right/joint1"/>
-			<joint name="bravo_right/joint2"/>
-			<joint name="bravo_right/joint3"/>
-			<joint name="bravo_right/joint4"/>
-			<joint name="bravo_right/joint5"/>
-			<joint name="bravo_right/joint6"/>
-			<joint name="bravo_right/finger_small_joint"/>
-			<joint name="bravo_right/finger_large_joint"/>
+		<ros_control_interface namespace="/$(arg robot_name)/bravo" type="velocity">
+			<joint name="bravo/joint1"/>
+			<joint name="bravo/joint2"/>
+			<joint name="bravo/joint3"/>
+			<joint name="bravo/joint4"/>
+			<joint name="bravo/joint5"/>
+			<joint name="bravo/joint6"/>
+			<joint name="bravo/finger_small_joint"/>
+			<joint name="bravo/finger_large_joint"/>
 		</ros_control_interface>
 
 		<ros_subscriber thrusters="/$(arg robot_name)/controller/thruster_setpoints_sim"/>
