@@ -88,8 +88,8 @@ bool iauv_motion_planner_node::getPath(iauv_motion_planner::GetPath::Request &re
             break;
         }
 
-        prepath = {req.goal.position.x - (scan->length / 2),
-                   req.goal.position.y - (scan->width / 2),
+        prepath = {req.goal.position.x - (scan->length_ / 2),
+                   req.goal.position.y - (scan->width_ / 2),
                    req.goal.position.z,
                    angle + 3.1415};
 
@@ -97,13 +97,13 @@ bool iauv_motion_planner_node::getPath(iauv_motion_planner::GetPath::Request &re
         res.path = scan->doPlan(goal);
         break;
     case iauv_motion_planner::GetPathRequest::CIRCULAR:
-        if (!scan->checkParams(req.params))
+        if (!circ->checkParams(req.params))
         {
             break;
         }
 
-        prepath = {req.goal.position.x + ((circ->radius) * cos(angle)),
-                   req.goal.position.y + ((circ->radius) * sin(angle)),
+        prepath = {req.goal.position.x + ((circ->radius_) * cos(angle)),
+                   req.goal.position.y + ((circ->radius_) * sin(angle)),
                    req.goal.position.z,
                    angle + 3.1415};
         // circ->path_ = rrt->doPlan(start, prepath);

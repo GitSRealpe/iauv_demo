@@ -32,8 +32,8 @@ namespace iauv_motion_planner
     nav_msgs::Path ScanPlanner::doPlan(std::vector<double> center)
     {
 
-        width = params_["width"];
-        length = params_["length"];
+        width_ = params_["width"];
+        length_ = params_["length"];
         // std::cout << "scanarea of width and length: " << width << ", " << length << "\n";
 
         // path_ = nav_msgs::Path();
@@ -43,8 +43,8 @@ namespace iauv_motion_planner
         Eigen::Isometry3d centerT(Eigen::Translation3d(center[0], center[1], center[2]) *
                                   Eigen::AngleAxisd(center[3], Eigen::Vector3d::UnitZ()));
 
-        Eigen::Isometry3d startT(Eigen::Translation3d(-length / 2, -width / 2, 0));
-        Eigen::Isometry3d goalT(Eigen::Translation3d(length / 2, width / 2, 0));
+        Eigen::Isometry3d startT(Eigen::Translation3d(-length_ / 2, -width_ / 2, 0));
+        Eigen::Isometry3d goalT(Eigen::Translation3d(length_ / 2, width_ / 2, 0));
 
         Eigen::Isometry3d start_pose = centerT * startT;
         Eigen::Quaterniond startq(start_pose.rotation());
@@ -65,7 +65,7 @@ namespace iauv_motion_planner
         path_.poses.push_back(pose);
 
         double dist = 0.5;
-        int steps_x = length / dist;
+        int steps_x = length_ / dist;
         int steps_y = 1.5 / dist;
         // std::cout << diff.translation() << "\n";
         // std::cout << diff.translation() / dist << "\n";

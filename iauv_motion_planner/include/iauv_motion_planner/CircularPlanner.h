@@ -18,7 +18,7 @@ namespace iauv_motion_planner
 
         Eigen::Isometry3d next_;
 
-        double radius;
+        double radius_;
     };
 
 } // namespace iauv_motion_planner
