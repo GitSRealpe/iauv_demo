@@ -30,9 +30,9 @@ namespace iauv_motion_planner
 
     nav_msgs::Path CircPlanner::doPlan(std::vector<double> start, std::vector<double> goal)
     {
+        // path_ = nav_msgs::Path();
+        // path_.header.frame_id = "map";
         radius_ = params_["radius"];
-        path_ = nav_msgs::Path();
-        path_.header.frame_id = "map";
 
         Eigen::Affine3d baseT(Eigen::Translation3d(start[0], start[1], start[2]) *
                               Eigen::AngleAxisd(start[3], Eigen::Vector3d::UnitZ()));

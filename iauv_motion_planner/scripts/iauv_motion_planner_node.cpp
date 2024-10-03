@@ -7,10 +7,7 @@
 // planners
 #include <iauv_motion_planner/SimplePlanner.h>
 #include <iauv_motion_planner/ScanPlanner.h>
-#include <iauv_motion_planner/sbmp/RRTPlanner.h>
 #include <iauv_motion_planner/CircularPlanner.h>
-
-// #include <tf2_ros/transform_listener.h>
 
 class iauv_motion_planner_node
 {
@@ -18,11 +15,7 @@ private:
     iauv_motion_planner::ScanPlannerPtr scan;
     iauv_motion_planner::SimplePlannerPtr simple;
     iauv_motion_planner::CircPlannerPtr circ;
-    iauv_motion_planner::ScenePtr scn;
-
-    // geometry_msgs::TransformStamped t;
-    // tf2_ros::TransformListener tfListener;
-    // tf2_ros::Buffer tfBuffer;
+    // iauv_motion_planner::ScenePtr scn;
 
     ros::Publisher pub;
     ros::ServiceServer service_;
@@ -35,13 +28,12 @@ public:
     bool getPath(iauv_motion_planner::GetPath::Request &req, iauv_motion_planner::GetPath::Response &res);
 };
 
-iauv_motion_planner_node::iauv_motion_planner_node(ros::NodeHandle &nh) //: tfListener(tfBuffer)
+iauv_motion_planner_node::iauv_motion_planner_node(ros::NodeHandle &nh)
 {
 
     // scn = std::make_shared<iauv_motion_planner::Scene>();
     simple = std::make_shared<iauv_motion_planner::SimplePlanner>(nh);
     scan = std::make_shared<iauv_motion_planner::ScanPlanner>(nh);
-    // rrt = std::make_shared<iauv_motion_planner::RRTPlanner>(nh);
     circ = std::make_shared<iauv_motion_planner::CircPlanner>(nh);
 
     pub = nh.advertise<nav_msgs::Path>("/iauv_motion_planner/path", 2, true);
@@ -52,31 +44,36 @@ bool iauv_motion_planner_node::getPath(iauv_motion_planner::GetPath::Request &re
 {
     std::cout << "service called\n";
     std::cout << "received request" << "\n";
-    std::cout << req << "\n";
+    // std::cout << req << "\n";
 
-    Eigen::Quaternionf q(req.start.orientation.w,
-                         req.start.orientation.x,
-                         req.start.orientation.y,
-                         req.start.orientation.z);
+    std::cout << "In frame: " << req.header.frame_id << "\n";
+    std::cout << "  Start: "
+              << "X: " << req.start.position.x
+              << ", Y: " << req.start.position.y
+              << ", Z: " << req.start.position.z << "\n";
+    std::cout << "  Goal: "
+              << "X: " << req.goal.position.x
+              << ", Y: " << req.goal.position.y
+              << ", Z: " << req.goal.position.z << "\n";
 
-    std::vector<double> start = {req.start.position.x,
-                                 req.start.position.y,
-                                 req.start.position.z,
+    Eigen::Quaternionf q(req.start.orientation.w, req.start.orientation.x,
+                         req.start.orientation.y, req.start.orientation.z);
+
+    std::vector<double> start = {req.start.position.x, req.start.position.y, req.start.position.z,
                                  atan2(q.toRotationMatrix()(1, 0), q.toRotationMatrix()(0, 0))};
 
-    q = Eigen::Quaternionf(req.goal.orientation.w,
-                           req.goal.orientation.x,
-                           req.goal.orientation.y,
-                           req.goal.orientation.z);
+    q = Eigen::Quaternionf(req.goal.orientation.w, req.goal.orientation.x,
+                           req.goal.orientation.y, req.goal.orientation.z);
 
-    std::vector<double> goal = {req.goal.position.x,
-                                req.goal.position.y,
-                                req.goal.position.z,
+    std::vector<double> goal = {req.goal.position.x, req.goal.position.y, req.goal.position.z,
                                 atan2(q.toRotationMatrix()(1, 0), q.toRotationMatrix()(0, 0))};
 
     // no usar este angle y usar el goal[3]
     double angle = atan2(q.toRotationMatrix()(1, 0), q.toRotationMatrix()(0, 0));
     std::vector<double> prepath;
+
+    // nav_msgs::PathPtr path;
+    // path->header = req.header;
 
     switch (req.planner)
     {
@@ -88,7 +85,6 @@ bool iauv_motion_planner_node::getPath(iauv_motion_planner::GetPath::Request &re
         {
             break;
         }
-
         prepath = {req.goal.position.x - (scan->length_ / 2),
                    req.goal.position.y - (scan->width_ / 2),
                    req.goal.position.z,
