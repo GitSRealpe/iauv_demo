@@ -118,6 +118,7 @@ add_library(${PROJECT_NAME}
   src/Planner.cpp
   src/sbmp/SampleBasedPlanner.cpp
   src/sbmp/RRTPlanner.cpp
+  src/SimplePlanner.cpp
   src/ScanPlanner.cpp
   src/CircularPlanner.cpp
 )
@@ -146,6 +147,8 @@ install(DIRECTORY include/${PROJECT_NAME}/
 ## in contrast to setup.py, you can choose the destination
 
 
-# catkin_install_python(PROGRAMS
-#   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
-# )
+catkin_install_python(PROGRAMS
+  scripts/plan_test.py
+  DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)
+

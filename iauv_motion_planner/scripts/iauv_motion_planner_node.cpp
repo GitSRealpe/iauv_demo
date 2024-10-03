@@ -5,6 +5,7 @@
 #include <iauv_motion_planner/Scene.h>
 
 // planners
+#include <iauv_motion_planner/SimplePlanner.h>
 #include <iauv_motion_planner/ScanPlanner.h>
 #include <iauv_motion_planner/sbmp/RRTPlanner.h>
 #include <iauv_motion_planner/CircularPlanner.h>
@@ -15,7 +16,7 @@ class iauv_motion_planner_node
 {
 private:
     iauv_motion_planner::ScanPlannerPtr scan;
-    iauv_motion_planner::RRTPlannerPtr rrt;
+    iauv_motion_planner::SimplePlannerPtr simple;
     iauv_motion_planner::CircPlannerPtr circ;
     iauv_motion_planner::ScenePtr scn;
 
@@ -37,7 +38,8 @@ public:
 iauv_motion_planner_node::iauv_motion_planner_node(ros::NodeHandle &nh) //: tfListener(tfBuffer)
 {
 
-    scn = std::make_shared<iauv_motion_planner::Scene>();
+    // scn = std::make_shared<iauv_motion_planner::Scene>();
+    simple = std::make_shared<iauv_motion_planner::SimplePlanner>(nh);
     scan = std::make_shared<iauv_motion_planner::ScanPlanner>(nh);
     // rrt = std::make_shared<iauv_motion_planner::RRTPlanner>(nh);
     circ = std::make_shared<iauv_motion_planner::CircPlanner>(nh);
@@ -78,9 +80,8 @@ bool iauv_motion_planner_node::getPath(iauv_motion_planner::GetPath::Request &re
 
     switch (req.planner)
     {
-    case iauv_motion_planner::GetPathRequest::RRT:
-        std::cout << start[0] << "before do plan \n";
-        res.path = rrt->doPlan(start, goal);
+    case iauv_motion_planner::GetPathRequest::SIMPLE:
+        res.path = simple->doPlan(start, goal);
         break;
     case iauv_motion_planner::GetPathRequest::SCANNER:
         if (!scan->checkParams(req.params))
@@ -93,7 +94,7 @@ bool iauv_motion_planner_node::getPath(iauv_motion_planner::GetPath::Request &re
                    req.goal.position.z,
                    angle + 3.1415};
 
-        // scan->path_ = rrt->doPlan(start, prepath);
+        simple->path_ = simple->doPlan(start, prepath);
         res.path = scan->doPlan(goal);
         break;
     case iauv_motion_planner::GetPathRequest::CIRCULAR:
@@ -101,12 +102,14 @@ bool iauv_motion_planner_node::getPath(iauv_motion_planner::GetPath::Request &re
         {
             break;
         }
-
-        prepath = {req.goal.position.x + ((circ->radius_) * cos(angle)),
-                   req.goal.position.y + ((circ->radius_) * sin(angle)),
+        prepath = {req.goal.position.x + ((circ->params_["radius"]) * cos(angle)),
+                   req.goal.position.y + ((circ->params_["radius"]) * sin(angle)),
                    req.goal.position.z,
                    angle + 3.1415};
-        // circ->path_ = rrt->doPlan(start, prepath);
+        std::cout << "\n";
+
+        circ->path_ = simple->doPlan(start, prepath);
+        circ->path_.header = req.header;
         res.path = circ->doPlan(goal, goal);
         break;
     default:
