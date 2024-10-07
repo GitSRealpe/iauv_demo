@@ -14,4 +14,11 @@
         <world_transform xyz="3.0 5.0 7.0" rpy="0.0 0.0 0.75"/>
     </static>
 
+    <static name="LilBox" type="box">
+        <dimensions xyz="0.1 0.1 0.1"/>
+        <material name="Steel"/>
+        <look name="Gray"/>
+        <world_transform xyz="3.0 0.0 7.0" rpy="0.0 0.0 0.75"/>
+    </static>
+
 </scenario>
