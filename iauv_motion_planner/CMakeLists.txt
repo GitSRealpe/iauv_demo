@@ -148,6 +148,7 @@ install(DIRECTORY include/${PROJECT_NAME}/
 
 catkin_install_python(PROGRAMS
   scripts/plan_test.py
+  scripts/follow_path.py
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 
