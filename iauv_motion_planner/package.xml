@@ -32,6 +32,7 @@
   <depend>geometry_msgs</depend>
 
   <depend>nav_msgs</depend>
+  <depend>girona_utils</depend>
 
   <build_depend>message_generation</build_depend>
   <exec_depend>message_runtime</exec_depend>

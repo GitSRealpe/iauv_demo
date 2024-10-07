@@ -56,6 +56,7 @@ list(APPEND CATKIN_SOURCES
     geometry_msgs
     nav_msgs
     rviz_visual_tools
+    girona_utils
   )
 
 find_package(catkin REQUIRED COMPONENTS ${CATKIN_SOURCES} message_generation actionlib genmsg)
@@ -113,11 +114,9 @@ list(APPEND LIBRARIES
 
 add_library(${PROJECT_NAME}
   include/${PROJECT_NAME}/Scene.h
-  src/sbmp/Validator3.cpp
+  
   src/Scene.cpp
   src/Planner.cpp
-  src/sbmp/SampleBasedPlanner.cpp
-  src/sbmp/RRTPlanner.cpp
   src/SimplePlanner.cpp
   src/ScanPlanner.cpp
   src/CircularPlanner.cpp
