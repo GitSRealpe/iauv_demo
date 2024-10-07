@@ -37,8 +37,7 @@ namespace iauv_motion_planner
         // std::cout << "scanarea of width and length: " << width << ", " << length << "\n";
 
         // path_ = nav_msgs::Path();
-        path_ = nav_msgs::Path();
-        path_.header.frame_id = "map";
+        // path_.header.frame_id = "map";
 
         Eigen::Isometry3d centerT(Eigen::Translation3d(center[0], center[1], center[2]) *
                                   Eigen::AngleAxisd(center[3], Eigen::Vector3d::UnitZ()));

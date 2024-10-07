@@ -13,7 +13,7 @@ namespace iauv_motion_planner
     {
         std::cout << "computing path\n";
         path_ = nav_msgs::Path();
-        path_.header.frame_id = "map";
+        // path_.header.frame_id = "map";
 
         Eigen::Isometry3d baseT(Eigen::Translation3d(start[0], start[1], start[2]) *
                                 Eigen::AngleAxisd(start[3], Eigen::Vector3d::UnitZ()));
