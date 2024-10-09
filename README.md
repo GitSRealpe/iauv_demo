@@ -25,4 +25,4 @@ Currently only lawnmower and circular inspection trajectories are implemented.
   </tr></thead>
 </table>
 
-The path generation is requested through the service [``/iauv_motion_planner/getPath``](https://gitsrealpe.github.io/iauv_demo/iauv_motion_planner/doc/html/srv/GetPath.html).
+The path generation is requested through the service [``/iauv_motion_planner/getPath``](https://gitsrealpe.github.io/iauv_demo/doc/html/srv/GetPath.html).
