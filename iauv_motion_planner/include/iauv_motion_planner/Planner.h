@@ -4,19 +4,13 @@
 #include <string>
 #include <ros/ros.h>
 #include <nav_msgs/Path.h>
+#include <Eigen/Core>
+#include <Eigen/Eigen>
 
 // #include <iauv_motion_planner/GetPath.h>
 // #include <iauv_motion_planner/Scene.h>
 #include <iauv_motion_planner/classForwards.h>
 #include <iauv_motion_planner/PlannerParam.h>
-
-// fcl stuff
-#include <fcl/narrowphase/collision.h>
-#include <fcl/narrowphase/collision_request.h>
-#include <fcl/narrowphase/collision_result.h>
-
-using CollObjPtr = std::shared_ptr<fcl::CollisionObjectf>;
-using CollGeomPtr = std::shared_ptr<fcl::CollisionGeometryf>;
 
 namespace iauv_motion_planner
 {

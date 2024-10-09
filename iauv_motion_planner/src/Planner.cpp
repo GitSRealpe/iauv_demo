@@ -5,12 +5,6 @@
 #include <octomap_msgs/Octomap.h>
 #include <octomap_msgs/conversions.h>
 
-// fcl stuff
-#include <fcl/geometry/octree/octree.h>
-#include <fcl/narrowphase/collision.h>
-#include <fcl/narrowphase/collision_request.h>
-#include <fcl/narrowphase/collision_result.h>
-
 #include <tf2_eigen/tf2_eigen.h>
 #include <eigen_conversions/eigen_msg.h>
 
