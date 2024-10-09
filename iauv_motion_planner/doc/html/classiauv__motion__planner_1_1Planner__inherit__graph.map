@@ -1,0 +1,6 @@
+<map id="iauv_motion_planner::Planner" name="iauv_motion_planner::Planner">
+<area shape="rect" id="node1" title=" " alt="" coords="5,71,164,112"/>
+<area shape="rect" id="node2" href="$classiauv__motion__planner_1_1CircPlanner.html" title=" " alt="" coords="212,5,371,47"/>
+<area shape="rect" id="node3" href="$classiauv__motion__planner_1_1ScanPlanner.html" title=" " alt="" coords="212,71,371,112"/>
+<area shape="rect" id="node4" href="$classiauv__motion__planner_1_1SimplePlanner.html" title=" " alt="" coords="212,136,371,177"/>
+</map>

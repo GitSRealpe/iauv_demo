@@ -1,0 +1,31 @@
+actions: []
+authors: ''
+brief: ''
+bugtracker: ''
+depends:
+- rospy
+- tf
+- visualization_msgs
+- girona_utils
+- pluginlib
+- eigen
+- eigen_conversions
+- catkin
+- geometry_msgs
+- sensor_msgs
+- message_generation
+- message_runtime
+- rviz_visual_tools
+- roscpp
+- nav_msgs
+- tf2_ros
+description: The iauv_motion_planner package
+license: TODO
+maintainers: srealper <srealper@todo.todo>
+msgs:
+- PlannerParam
+package_type: package
+repo_url: ''
+srvs:
+- GetPath
+url: ''
