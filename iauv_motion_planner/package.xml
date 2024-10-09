@@ -26,9 +26,6 @@
   <depend>rviz_visual_tools</depend>
 
   <depend>eigen_conversions</depend>
-  <depend>octomap_ros</depend>
-  <depend>octomap_msgs</depend>
-
   <depend>geometry_msgs</depend>
 
   <depend>nav_msgs</depend>
