@@ -1,0 +1,1 @@
+rviz_cloud_annotation/LabeledPointCloud2[] clouds

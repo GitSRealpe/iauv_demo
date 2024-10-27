@@ -1,0 +1,3 @@
+sensor_msgs/PointCloud2 cloud
+uint32 label_id
+string label_name
