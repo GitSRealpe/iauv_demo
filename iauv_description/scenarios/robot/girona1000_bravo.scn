@@ -467,14 +467,12 @@
 
 		<!-- cam_gripper ligth -->
 
-		<light name="Spot">
+		<!-- <light name="Spot">
 			<specs radius="0.03" cone_angle="30.0" illuminance="100000.0"/>
-			<!-- <color temperature="5600.0"/> -->
-			<!-- <color temperature="27000.0"/> -->
 			<color rgb="1.0 1.0 1.0"/>
 			<origin xyz="0.0 0.0 0.05" rpy="0.0 0.0 0.0"/>
 			<link name="RB7JawsBase"/>
-		</light>
+		</light> -->
 
 		<link name="RB7FingerSmall" type="compound" physics="submerged">
 			<external_part name="RB7FingerSmallP1" type="model" physics="submerged"

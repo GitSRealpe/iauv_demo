@@ -19,32 +19,38 @@ def call_service():
         )  # Replace with your actual service type
 
         req = GetPathRequest()
+        req.header.frame_id = "world_ned"
+
+        # req.planner = GetPathRequest.SIMPLE
+
         # req.planner = GetPathRequest.CIRCULAR
         # param = PlannerParam()
         # param.key = "radius"
-        # param.value = "5"
+        # param.value = "4"
+        # req.params.append(param)
 
         req.planner = GetPathRequest.SCANNER
+        # param = PlannerParam()
+        # param.key = "segment_length"
+        # param.value = "0.3"
+        # req.params.append(param)
         param = PlannerParam()
         param.key = "width"
         param.value = "7"
-
         req.params.append(param)
-
         param = PlannerParam()
         param.key = "length"
         param.value = "5"
-
         req.params.append(param)
 
-        # center of request
-        req.start.position.x = 1
-        req.start.position.y = 1
-        req.start.position.z = 1
+        req.start.position.x = -5
+        req.start.position.y = -5
+        req.start.position.z = 5
         req.start.orientation.w = 1
+        # goal or center of request
         req.goal.position.x = 0
         req.goal.position.y = 0
-        req.goal.position.z = 0
+        req.goal.position.z = 3
         # req.goal.orientation.w = 0.707
         # req.goal.orientation.z = 0.707
         # req.goal.orientation.w = 0.924

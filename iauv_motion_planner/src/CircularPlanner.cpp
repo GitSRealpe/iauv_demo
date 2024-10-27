@@ -4,7 +4,9 @@ namespace iauv_motion_planner
 {
     CircPlanner::CircPlanner(ros::NodeHandle &nh) : Planner(nh)
     {
-        std::cout << "loaded circular scan planner\n\n";
+        planner_name = "CircularPlanner";
+        params_["radius"] = 1;
+        std::cout << "loaded circular planner\n";
     }
 
     void CircPlanner::forward(Eigen::Isometry3d mov, int steps)
@@ -29,8 +31,8 @@ namespace iauv_motion_planner
     nav_msgs::Path CircPlanner::doPlan(std::vector<double> start, std::vector<double> goal)
     {
         // path_ = nav_msgs::Path();
-        path_ = nav_msgs::Path();
-        path_.header.frame_id = "map";
+        // path_.header.frame_id = "map";
+        radius_ = params_["radius"];
 
         Eigen::Affine3d baseT(Eigen::Translation3d(start[0], start[1], start[2]) *
                               Eigen::AngleAxisd(start[3], Eigen::Vector3d::UnitZ()));
@@ -46,7 +48,7 @@ namespace iauv_motion_planner
         {
             // these two can be one line, checl l8r
             Eigen::Affine3d poseC(Eigen::AngleAxisd(theta, Eigen::Vector3d::UnitZ()));
-            poseC.translation() = Eigen::Vector3d(cos(theta) * radius, sin(theta) * radius, 0);
+            poseC.translation() = Eigen::Vector3d(cos(theta) * radius_, sin(theta) * radius_, 0);
 
             poseT = baseT * poseC;
 

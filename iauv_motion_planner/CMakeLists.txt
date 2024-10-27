@@ -24,26 +24,6 @@ include(../macros)
 find_package(catkin REQUIRED)
 find_package(Eigen3 REQUIRED)
 
-# set(ompl_DIR /home/srealper/theLibs/ompl/build/Release/)
-# set(OMPL_LIBRARIES /home/srealper/theLibs/ompl/build/Release/lib/libompl.so)
-find_package(ompl REQUIRED)
-message("ompl print")
-message("OMPL found? ${OMPL_FOUND}")
-message("2 ${OMPL_INCLUDE_DIRS}")
-message("3 ${OMPL_LIBRARY_DIRS}")
-message("4 ${OMPL_LIBRARY_DIR}")
-message("5 ${OMPL_LIBRARIES}")
-message("OMPL version ${OMPL_VERSION}")
-
-find_package(fcl REQUIRED)
-message("fcl prints")
-message("fcl found? ${fcl_FOUND}")
-# message("1 ${fcl_FOUND}")
-# message("2 ${FCL_INCLUDE_DIRS}")
-# message("3 ${FCL_LIBRARY_DIRS}")
-# message("4 ${FCL_LIBRARIES}")
-message("FCL version ${FCL_VERSION}")
-
 list(APPEND CATKIN_SOURCES
     roscpp
     rospy
@@ -51,11 +31,10 @@ list(APPEND CATKIN_SOURCES
     tf2_ros
     eigen_conversions
     visualization_msgs
-    octomap_msgs
-    octomap_ros
     geometry_msgs
     nav_msgs
     rviz_visual_tools
+    girona_utils
   )
 
 find_package(catkin REQUIRED COMPONENTS ${CATKIN_SOURCES} message_generation actionlib genmsg)
@@ -96,28 +75,22 @@ message("${PROJECT_NAME}")
 list(APPEND INCLUDES
   ${CMAKE_CURRENT_LIST_DIR}/include
   ${catkin_INCLUDE_DIRS}
-  ${OMPL_INCLUDE_DIRS}
   ${Boost_INCLUDE_DIRS}
   ${EIGEN3_INCLUDE_DIRS}
-  ${FCL_INCLUDE_DIRS}
   )
 
 include_directories(SYSTEM ${INCLUDES})
 
 list(APPEND LIBRARIES
-    ${OMPL_LIBRARIES}
-    ${FCL_LIBRARIES}
     ${catkin_LIBRARIES}
     ${Boost_LIBRARIES}
 )
 
 add_library(${PROJECT_NAME}
   include/${PROJECT_NAME}/Scene.h
-  src/sbmp/Validator3.cpp
   src/Scene.cpp
   src/Planner.cpp
-  src/sbmp/SampleBasedPlanner.cpp
-  src/sbmp/RRTPlanner.cpp
+  src/SimplePlanner.cpp
   src/ScanPlanner.cpp
   src/CircularPlanner.cpp
 )
@@ -146,6 +119,9 @@ install(DIRECTORY include/${PROJECT_NAME}/
 ## in contrast to setup.py, you can choose the destination
 
 
-# catkin_install_python(PROGRAMS
-#   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
-# )
+catkin_install_python(PROGRAMS
+  scripts/request_path.py
+  scripts/follow_path.py
+  DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)
+

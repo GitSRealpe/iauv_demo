@@ -22,11 +22,11 @@
     <rosparam command="load" ns="sim_internal_sensors" file="$(arg config_folder)/sim_internal_sensors.yaml"/>
 
     <!-- Safety nodes -->
-    <node name="diagnostic_aggregator" pkg="diagnostic_aggregator" type="aggregator_node">
+    <!-- <node name="diagnostic_aggregator" pkg="diagnostic_aggregator" type="aggregator_node">
         <remap from="/diagnostics" to="/$(arg robot_name)/diagnostics"/>
         <remap from="/diagnostics_agg" to="/$(arg robot_name)/diagnostics_agg"/>
         <remap from="/diagnostics_toplevel_state" to="/$(arg robot_name)/diagnostics_toplevel_state"/>
-    </node>
+    </node> -->
     <!-- <node name="safe_depth_altitude" pkg="cola2_safety" type="safe_depth_altitude_node" output="screen"/> -->
     <!-- <node name="safety_supervisor" pkg="cola2_safety" type="safety_supervisor_node" output="screen"/> -->
     <!-- <node name="safety_supervisor_checker" pkg="cola2_safety" type="safety_supervisor_checker_node" output="screen"/> -->

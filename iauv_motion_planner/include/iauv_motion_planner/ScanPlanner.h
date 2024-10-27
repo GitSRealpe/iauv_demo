@@ -18,8 +18,8 @@ namespace iauv_motion_planner
 
         Eigen::Isometry3d next_;
 
-        double width;
-        double length;
+        double width_;
+        double length_;
     };
 
 } // namespace iauv_motion_planner
