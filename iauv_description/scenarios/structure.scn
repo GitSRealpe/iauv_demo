@@ -3,14 +3,7 @@
 
     <robot name="$(arg name)" fixed="false" self_collisions="false">
 
-        <base_link name="Origin" type="box" physics="submerged">
-            <dimensions xyz="0.01 0.01 0.01"/>
-            <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
-            <material name="Rock"/>
-            <look name="Red"/>
-        </base_link>
-
-        <link name="Base" type="compound" physics="submerged" buoyant="true">
+        <base_link name="Origin" type="compound" physics="submerged">
             <external_part name="top" type="model" physics="submerged" buoyant="true">
                 <visual>
                     <mesh filename="$(find iauv_description)/resources/meshes/structure.obj" scale="1.0"/>
@@ -25,13 +18,7 @@
                 <compound_transform xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
             </external_part>
             <mass value="5.0"/>
-        </link>
-
-        <joint name="base2orig" type="fixed">
-            <parent name="Origin"/>
-            <child name="Base"/>
-            <origin rpy="0 0 0" xyz="0 0 0"/>
-        </joint>
+        </base_link>
 
         <link name="LumaLink" type="box" physics="surface">
             <dimensions xyz="0.01 0.01 0.01"/>
@@ -46,20 +33,20 @@
             <origin rpy="1.57 0 0" xyz="0 0 -2.0"/>
         </joint>
 
-        <comm name="Modem" device_id="4" type="acoustic_modem">
+        <!-- <comm name="Modem" device_id="4" type="acoustic_modem">
             <specs min_vertical_fov="0.0" max_vertical_fov="90.0" range="10.0"/>
             <connect device_id="5" occlusion_test="true"/>
             <origin xyz="0.0 0.0 0.15" rpy="0.0 3.1415 0.0"/>
             <link name="LumaLink"/>
             <ros_publisher topic="/luma_structure"/>
-        </comm>
+        </comm> -->
 
-        <!-- <comm name="LUMA9" device_id="9" type="luma">
+        <comm name="LUMA9" device_id="9" type="luma">
             <specs comm_speed="1" range="1000.0" minVFov="90" maxVFov="120"/>
             <connect device_id="5" occlusion_test="true"/>
             <origin xyz="0.0 0.0 0.17" rpy="0.0 0.0 0.0"/>
             <link name="LumaLink"/>
-        </comm> -->
+        </comm>
 
         <world_transform rpy="0.0 0.0 $(arg start_yaw)" xyz="$(arg start_position)"/>
     </robot>
