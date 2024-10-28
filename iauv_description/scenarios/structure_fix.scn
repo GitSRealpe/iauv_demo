@@ -1,0 +1,39 @@
+<scenario>
+    <robot name="$(arg name)" fixed="false" self_collisions="false">
+        <base_link name="Vehicle" type="compound" physics="submerged">
+            <external_part name="SideR" type="model" physics="submerged" buoyant="false">
+                <physical>
+                    <mesh filename="$(find iauv_description)/resources/meshes/structure.obj" scale="1.0"/>
+                    <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
+                </physical>
+                <look name="Gray"/>
+                <material name="Rock"/>
+                <compound_transform xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            </external_part>
+            <mass value="5.0"/>
+        </base_link>
+
+        <link name="LinkLuma" type="box" physics="submerged">
+            <dimensions xyz="0.01 0.01 0.01"/>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <material name="Steel"/>
+            <look name="Neutral"/>
+        </link>
+        <joint name="Joint1" type="fixed">
+            <parent name="Vehicle"/>
+            <child name="LinkLuma"/>
+            <origin xyz="0.0 0.2 -1.6" rpy="0.0 0.0 0.0"/>
+            <axis xyz="0.0 1.0 0.0"/>
+        </joint>
+
+        <comm name="LUMA" device_id="9" type="luma">
+            <specs comm_speed="1" range="1000.0" minVFov="90" maxVFov="120"/>
+            <connect device_id="5" occlusion_test="true"/>
+            <origin xyz="0.0 0.2 -1.6" rpy="0.0 0.0 0.0"/>
+            <link name="LinkLuma"/>
+        </comm>
+
+        <world_transform rpy="0.0 0.0 $(arg start_yaw)" xyz="$(arg start_position)"/>
+
+    </robot>
+</scenario>
