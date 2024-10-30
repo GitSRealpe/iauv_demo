@@ -6,10 +6,10 @@ Panels:
       Expanded:
         - /Global Options1
         - /Status1
-        - /Grid1
-        - /Path1
-        - /Path1/Status1
-      Splitter Ratio: 0.474097341299057
+        - /TF1
+        - /TF1/Frames1
+        - /PointCloud21
+      Splitter Ratio: 0.7419354915618896
     Tree Height: 381
   - Class: rviz/Selection
     Name: Selection
@@ -155,6 +155,10 @@ Visualization Manager:
           Alpha: 1
           Show Axes: false
           Show Trail: false
+        girona1000/luma_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
         girona1000/origin:
           Alpha: 1
           Show Axes: false
@@ -196,12 +200,72 @@ Visualization Manager:
       Value: true
       Visual Enabled: true
     - Class: rviz/TF
-      Enabled: false
+      Enabled: true
       Filter (blacklist): ""
       Filter (whitelist): ""
       Frame Timeout: 15
       Frames:
         All Enabled: false
+        girona1000/back_thrusters_support:
+          Value: false
+        girona1000/base_link:
+          Value: true
+        girona1000/bravo/base_link:
+          Value: false
+        girona1000/bravo/finger_large_link:
+          Value: false
+        girona1000/bravo/finger_small_link:
+          Value: false
+        girona1000/bravo/gripper_camera:
+          Value: false
+        girona1000/bravo/jaws_base_link:
+          Value: false
+        girona1000/bravo/link1:
+          Value: false
+        girona1000/bravo/link2:
+          Value: false
+        girona1000/bravo/link3:
+          Value: false
+        girona1000/bravo/link4:
+          Value: false
+        girona1000/bravo/link5:
+          Value: false
+        girona1000/bravo/link6:
+          Value: false
+        girona1000/camera:
+          Value: false
+        girona1000/depth_cam_link:
+          Value: true
+        girona1000/dvl:
+          Value: false
+        girona1000/dvl_altitude:
+          Value: false
+        girona1000/gps:
+          Value: false
+        girona1000/ins:
+          Value: false
+        girona1000/luma_link:
+          Value: true
+        girona1000/origin:
+          Value: false
+        girona1000/pressure:
+          Value: false
+        girona1000/thruster_0:
+          Value: false
+        girona1000/thruster_1:
+          Value: false
+        girona1000/thruster_2:
+          Value: false
+        girona1000/thruster_3:
+          Value: false
+        girona1000/thruster_4:
+          Value: false
+        luma_station:
+          Value: true
+        world:
+          Value: false
+        world_ned:
+          Value: true
       Marker Alpha: 1
       Marker Scale: 1
       Name: TF
@@ -209,9 +273,55 @@ Visualization Manager:
       Show Axes: true
       Show Names: true
       Tree:
-        {}
+        world:
+          world_ned:
+            girona1000/base_link:
+              girona1000/origin:
+                girona1000/back_thrusters_support:
+                  {}
+                girona1000/bravo/base_link:
+                  girona1000/bravo/link1:
+                    girona1000/bravo/link2:
+                      girona1000/bravo/link3:
+                        girona1000/bravo/link4:
+                          girona1000/bravo/link5:
+                            girona1000/bravo/link6:
+                              girona1000/bravo/jaws_base_link:
+                                girona1000/bravo/finger_large_link:
+                                  {}
+                                girona1000/bravo/finger_small_link:
+                                  {}
+                                girona1000/bravo/gripper_camera:
+                                  {}
+                girona1000/camera:
+                  {}
+                girona1000/depth_cam_link:
+                  {}
+                girona1000/dvl:
+                  girona1000/dvl_altitude:
+                    {}
+                girona1000/gps:
+                  {}
+                girona1000/ins:
+                  {}
+                girona1000/luma_link:
+                  {}
+                girona1000/pressure:
+                  {}
+                girona1000/thruster_0:
+                  {}
+                girona1000/thruster_1:
+                  {}
+                girona1000/thruster_2:
+                  {}
+                girona1000/thruster_3:
+                  {}
+                girona1000/thruster_4:
+                  {}
+            luma_station:
+              {}
       Update Interval: 0
-      Value: false
+      Value: true
     - Alpha: 1
       Class: rviz/Axes
       Enabled: true
@@ -243,14 +353,14 @@ Visualization Manager:
     - Alpha: 1
       Autocompute Intensity Bounds: true
       Autocompute Value Bounds:
-        Max Value: 10
-        Min Value: -10
+        Max Value: -7.880221366882324
+        Min Value: -8.09880542755127
         Value: true
       Axis: Z
       Channel Name: intensity
       Class: rviz/PointCloud2
       Color: 255; 255; 255
-      Color Transformer: Intensity
+      Color Transformer: AxisColor
       Decay Time: 0
       Enabled: true
       Invert Rainbow: false
@@ -294,7 +404,7 @@ Visualization Manager:
       Value: true
   Enabled: true
   Global Options:
-    Background Color: 255; 255; 255
+    Background Color: 46; 52; 54
     Default Light: true
     Fixed Frame: world
     Frame Rate: 30
@@ -319,20 +429,26 @@ Visualization Manager:
   Value: true
   Views:
     Current:
-      Angle: 0
-      Class: rviz/TopDownOrtho
+      Class: rviz/Orbit
+      Distance: 5.4932169914245605
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
+      Field of View: 0.7853981852531433
+      Focal Point:
+        X: -9.300785064697266
+        Y: -3.0008914470672607
+        Z: -6.776982307434082
+      Focal Shape Fixed Size: true
+      Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Scale: 94.81668090820312
+      Pitch: 0.44479620456695557
       Target Frame: <Fixed Frame>
-      X: 0.40582069754600525
-      Y: 0.07649235427379608
+      Yaw: 3.7631874084472656
     Saved: ~
 Window Geometry:
   Camera:

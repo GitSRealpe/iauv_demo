@@ -1,3 +1,4 @@
+<?xml version="1.0"?>
 <scenario>
     <robot name="$(arg name)" fixed="false" self_collisions="false">
         <base_link name="Vehicle" type="compound" physics="submerged">

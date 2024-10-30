@@ -48,4 +48,11 @@
     <origin rpy="0 0 0" xyz="0 0 0.05"/>
   </joint>
 
+  <link name="$(arg robot_namespace)/luma_link"/>
+  <joint name="luma_joint" type="fixed">
+    <parent link="$(arg robot_namespace)/origin"/>
+    <child link="$(arg robot_namespace)/luma_link"/>
+    <origin rpy="0 -1.57 0" xyz="-0.5 0 0.3"/>
+  </joint>
+
 </robot>
