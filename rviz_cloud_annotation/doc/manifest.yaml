@@ -1,0 +1,28 @@
+actions: []
+authors: ''
+brief: ''
+bugtracker: ''
+depends:
+- rviz
+- catkin
+- pcl_conversions
+- geometry_msgs
+- tf
+- interactive_markers
+- std_msgs
+- visualization_msgs
+- cmake_modules
+- eigen_conversions
+- roscpp
+description: The rviz_cloud_annotation package
+license: BSD-3-Clause
+maintainers: RMonica <rmonica@ce.unipr.it>
+msgs:
+- LabeledPointCloud2Array
+- LabeledPointCloud2
+- RectangleSelectionViewport
+- UndoRedoState
+package_type: package
+repo_url: ''
+srvs: []
+url: ''

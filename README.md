@@ -73,3 +73,20 @@ Download, compile the package and launch the main node to bringup the action ser
 ``roslaunch girona_utils auv_pose_controller.launch robot:=girona1000``
 
 With the path follower main node running you can issue follow path request using a SimpleActionClient as exposed in the [``follow_path.py``](https://github.com/GitSRealpe/iauv_demo/blob/main/iauv_motion_planner/scripts/follow_path.py) example.
+
+### rviz_cloud_annotation
+This is a *fork* from [RMonica/rviz_cloud_annotation](https://github.com/RMonica/rviz_cloud_annotation) tool, with a small modification to publish the individual annotated point clouds with their label.
+
+Labeled pointclouds are published on the ``/labeled_clouds`` topic, as a [``rviz_cloud_annotation/LabeledPointCloud2Array``](https://gitsrealpe.github.io/iauv_demo/rviz_cloud_annotation/doc/html/msg/LabeledPointCloud2Array.html).
+Each message of this array is a [LabeledPointCloud2](https://gitsrealpe.github.io/iauv_demo/rviz_cloud_annotation/doc/html/msg/LabeledPointCloud2Array.html) which is compossed of:
+- The PointCloud2 msg of a labeled pointcloud with the tool
+- A label id, corresponding to the given number to the label by the tool
+- A label name string chosen in the RViz labeling tool.
+
+**Note**: Each label needs to have a ***name*** for a labeled pointcloud to be published on this topic 
+
+<table><thead>
+  <tr>
+    <td><img src="/media/pcd_label_example.jpeg" width="600"></td>
+  </tr></thead>
+</table>
