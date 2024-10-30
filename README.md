@@ -78,7 +78,7 @@ With the path follower main node running you can issue follow path request using
 This is a *fork* from [RMonica/rviz_cloud_annotation](https://github.com/RMonica/rviz_cloud_annotation) tool, with a small modification to publish the individual annotated point clouds with their label.
 
 Labeled pointclouds are published on the ``/labeled_clouds`` topic, as a [``rviz_cloud_annotation/LabeledPointCloud2Array``](https://gitsrealpe.github.io/iauv_demo/rviz_cloud_annotation/doc/html/msg/LabeledPointCloud2Array.html).
-Each message of this array is a [LabeledPointCloud2](https://gitsrealpe.github.io/iauv_demo/rviz_cloud_annotation/doc/html/msg/LabeledPointCloud2Array.html) which is compossed of:
+Each message of this array is a [``LabeledPointCloud2``](https://gitsrealpe.github.io/iauv_demo/rviz_cloud_annotation/doc/html/msg/LabeledPointCloud2.html) which is compossed of:
 - The PointCloud2 msg of a labeled pointcloud with the tool
 - A label id, corresponding to the given number to the label by the tool
 - A label name string chosen in the RViz labeling tool.
