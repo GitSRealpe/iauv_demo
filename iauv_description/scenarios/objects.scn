@@ -21,21 +21,21 @@
         <world_transform xyz="3.0 0.0 7.0" rpy="0.0 0.0 0.75"/>
     </static>
 
-    <dynamic name="Torus" type="torus" physics="submerged" buoyant="true">
+    <!-- <static name="Torus" type="torus" physics="submerged" buoyant="true">
         <dimensions major_radius="0.5" minor_radius="0.2"/>
         <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
         <material name="Steel"/>
         <look name="Yellow"/>
         <world_transform xyz="-3.0 3.0 0.0" rpy="1.57 0.0 0.0"/>
-    </dynamic>
+    </static> -->
 
-    <dynamic name="Cyl" type="cylinder" physics="surface">
+    <!-- <static name="Cyl" type="cylinder" physics="surface">
         <dimensions radius="0.5" height="1.0"/>
         <origin xyz="0.0 0.0 0.0" rpy="1.57 0.0 0.0"/>
         <material name="Steel"/>
         <look name="Yellow"/>
         <world_transform xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
-    </dynamic>
+    </static> -->
 
     <static name="Cone" type="model">
         <physical>
