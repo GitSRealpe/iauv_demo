@@ -20,16 +20,16 @@
             <mass value="5.0"/>
         </base_link>
 
-        <link name="LumaLink" type="box" physics="surface">
+        <link name="VlcLink" type="box" physics="surface">
             <dimensions xyz="0.01 0.01 0.01"/>
             <origin rpy="0 0 0" xyz="0.0 0.0 0.0"/>
             <material name="Rock"/>
             <look name="Gray"/>
         </link>
 
-        <joint name="luma_joint" type="fixed">
+        <joint name="vlc_joint" type="fixed">
             <parent name="Origin"/>
-            <child name="LumaLink"/>
+            <child name="VlcLink"/>
             <origin rpy="1.57 0 0" xyz="0 0 -2.0"/>
         </joint>
 
@@ -37,15 +37,15 @@
             <specs min_vertical_fov="0.0" max_vertical_fov="90.0" range="10.0"/>
             <connect device_id="5" occlusion_test="true"/>
             <origin xyz="0.0 0.0 0.15" rpy="0.0 3.1415 0.0"/>
-            <link name="LumaLink"/>
-            <ros_publisher topic="/luma_structure"/>
+            <link name="VlcLink"/>
+            <ros_publisher topic="/vlc_structure"/>
         </comm> -->
 
-        <comm name="LUMA9" device_id="9" type="luma">
+        <comm name="VLC9" device_id="9" type="vlc">
             <specs comm_speed="1" range="1000.0" minVFov="90" maxVFov="120"/>
             <connect device_id="5" occlusion_test="true"/>
             <origin xyz="0.0 0.0 0.17" rpy="0.0 0.0 0.0"/>
-            <link name="LumaLink"/>
+            <link name="VlcLink"/>
         </comm>
 
         <world_transform rpy="0.0 0.0 $(arg start_yaw)" xyz="$(arg start_position)"/>

@@ -474,26 +474,26 @@
 			<link name="RB7JawsBase"/>
 		</light> -->
 
-		<!-- luma definition -->
-		<link name="LinkLuma" type="box" physics="submerged">
-			<dimensions xyz="0.01 0.01 0.01"/>
-			<origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+		<!-- vlc definition -->
+		<link name="LinkVlc" type="cylinder" physics="submerged">
+			<dimensions radius="0.03" height="0.126"/>
+			<origin xyz="0.0 0.0 0.0" rpy="1.57 0.0 0.0"/>
 			<material name="Steel"/>
 			<look name="Neutral"/>
 		</link>
 		<joint name="Joint1" type="fixed">
 			<parent name="Vehicle"/>
-			<child name="LinkLuma"/>
+			<child name="LinkVlc"/>
 			<origin xyz="-0.5 0.0 0.3" rpy="0.0 0.0 1.57"/>
 			<axis xyz="0.0 1.0 0.0"/>
 		</joint>
-		<comm name="LUMA" device_id="5" type="luma">
+		<comm name="VLC" device_id="5" type="vlc">
 			<specs comm_speed="1" range="1000.0" minVFov="90" maxVFov="120"/>
 			<connect device_id="9" occlusion_test="true"/>
 			<origin xyz="-0.5 0.0 0.3" rpy="0.0 0.0 1.57"/>
-			<link name="LinkLuma"/>
+			<link name="LinkVlc"/>
 		</comm>
-		<!-- luma definition -->
+		<!-- vlc definition -->
 
 		<link name="RB7FingerSmall" type="compound" physics="submerged">
 			<external_part name="RB7FingerSmallP1" type="model" physics="submerged"

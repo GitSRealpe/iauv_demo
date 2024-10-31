@@ -155,10 +155,6 @@ Visualization Manager:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-        girona1000/luma_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
         girona1000/origin:
           Alpha: 1
           Show Axes: false
@@ -193,6 +189,10 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
+        girona1000/vlc_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
       Name: RobotModel
       Robot Description: girona1000/robot_description
       TF Prefix: ""
@@ -244,8 +244,6 @@ Visualization Manager:
           Value: false
         girona1000/ins:
           Value: false
-        girona1000/luma_link:
-          Value: true
         girona1000/origin:
           Value: false
         girona1000/pressure:
@@ -260,7 +258,9 @@ Visualization Manager:
           Value: false
         girona1000/thruster_4:
           Value: false
-        luma_station:
+        girona1000/vlc_link:
+          Value: true
+        vlc_station:
           Value: true
         world:
           Value: false
@@ -304,8 +304,6 @@ Visualization Manager:
                   {}
                 girona1000/ins:
                   {}
-                girona1000/luma_link:
-                  {}
                 girona1000/pressure:
                   {}
                 girona1000/thruster_0:
@@ -318,7 +316,9 @@ Visualization Manager:
                   {}
                 girona1000/thruster_4:
                   {}
-            luma_station:
+                girona1000/vlc_link:
+                  {}
+            vlc_station:
               {}
       Update Interval: 0
       Value: true
@@ -353,8 +353,8 @@ Visualization Manager:
     - Alpha: 1
       Autocompute Intensity Bounds: true
       Autocompute Value Bounds:
-        Max Value: -7.880221366882324
-        Min Value: -8.09880542755127
+        Max Value: -7.029386520385742
+        Min Value: -8.0990629196167
         Value: true
       Axis: Z
       Channel Name: intensity
@@ -430,7 +430,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 5.4932169914245605
+      Distance: 6.693668365478516
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -438,17 +438,17 @@ Visualization Manager:
         Value: false
       Field of View: 0.7853981852531433
       Focal Point:
-        X: -9.300785064697266
-        Y: -3.0008914470672607
-        Z: -6.776982307434082
+        X: -8.393621444702148
+        Y: -2.3830556869506836
+        Z: -5.509674072265625
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.44479620456695557
+      Pitch: 0.4997962713241577
       Target Frame: <Fixed Frame>
-      Yaw: 3.7631874084472656
+      Yaw: 2.5381875038146973
     Saved: ~
 Window Geometry:
   Camera:

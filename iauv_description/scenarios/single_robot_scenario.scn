@@ -55,7 +55,7 @@
 	<include file="$(find iauv_description)/scenarios/structure_fix.scn">
 		<arg name="start_position" value="-10.0 5.0 7.0"/>
 		<arg name="start_yaw" value="3.14"/>
-		<arg name="name" value="luma_structure"/>
+		<arg name="name" value="vlc_structure"/>
 	</include>
 
 	<include file="$(find iauv_description)/scenarios/robot/girona1000_bravo.scn">
