@@ -1,0 +1,5 @@
+<launch>
+
+    <rosparam command="load" file="$(find iauv_manipulation)/config/motions.yaml"/>
+    <node name="arm_motion_service" pkg="iauv_manipulation" type="arm_motion_srv" output="screen"/>
+</launch>

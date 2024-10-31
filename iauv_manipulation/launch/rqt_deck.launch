@@ -1,0 +1,9 @@
+<launch>
+
+    <arg name="perspective_file" default="$(find iauv_manipulation)/config/arm_controller.perspective"/>
+
+    <node pkg="rqt_gui" type="rqt_gui" name="rqt_gui" output="screen" args="--perspective-file $(arg perspective_file)">
+        <remap from="robot_description" to="/girona1000/robot_description"/>
+    </node>
+
+</launch>
