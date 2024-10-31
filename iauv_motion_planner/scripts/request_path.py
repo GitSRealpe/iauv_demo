@@ -21,7 +21,7 @@ def call_service():
         req = GetPathRequest()
         req.header.frame_id = "world_ned"
 
-        # req.planner = GetPathRequest.SIMPLE
+        req.planner = GetPathRequest.SIMPLE
 
         # req.planner = GetPathRequest.CIRCULAR
         # param = PlannerParam()
@@ -29,19 +29,19 @@ def call_service():
         # param.value = "4"
         # req.params.append(param)
 
-        req.planner = GetPathRequest.SCANNER
+        # req.planner = GetPathRequest.SCANNER
         # param = PlannerParam()
         # param.key = "segment_length"
         # param.value = "0.3"
         # req.params.append(param)
-        param = PlannerParam()
-        param.key = "width"
-        param.value = "7"
-        req.params.append(param)
-        param = PlannerParam()
-        param.key = "length"
-        param.value = "5"
-        req.params.append(param)
+        # param = PlannerParam()
+        # param.key = "width"
+        # param.value = "7"
+        # req.params.append(param)
+        # param = PlannerParam()
+        # param.key = "length"
+        # param.value = "5"
+        # req.params.append(param)
 
         req.start.position.x = -5
         req.start.position.y = -5

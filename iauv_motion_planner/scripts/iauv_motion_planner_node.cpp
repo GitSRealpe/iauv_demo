@@ -78,7 +78,12 @@ bool iauv_motion_planner_node::getPath(iauv_motion_planner::GetPath::Request &re
     switch (req.planner)
     {
     case iauv_motion_planner::GetPathRequest::SIMPLE:
+        if (!simple->checkParams(req.params))
+        {
+            break;
+        }
         res.path = simple->doPlan(start, goal);
+        res.path.header = req.header;
         break;
     case iauv_motion_planner::GetPathRequest::SCANNER:
         if (!scan->checkParams(req.params))
