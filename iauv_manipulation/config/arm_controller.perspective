@@ -4,14 +4,14 @@
     "mainwindow": {
       "keys": {
         "geometry": {
-          "repr(QByteArray.hex)": "QtCore.QByteArray(b'01d9d0cb000300000000010d000000a800000572000003b90000010d000000cd00000572000003b9000000000000000007800000010d000000cd00000572000003b9')",
+          "repr(QByteArray.hex)": "QtCore.QByteArray(b'01d9d0cb00030000000009ba000000bd00000e6a000003ce000009ba000000e200000e6a000003ce00000001000000000780000009ba000000e200000e6a000003ce')",
           "type": "repr(QByteArray.hex)",
-          "pretty-print": "         r       r            r  "
+          "pretty-print": "         j       j            j  "
         },
         "state": {
-          "repr(QByteArray.hex)": "QtCore.QByteArray(b'000000ff00000000fd000000010000000300000466000002c1fc0100000002fb000000b4007200710074005f006a006f0069006e0074005f007400720061006a006500630074006f00720079005f0063006f006e00740072006f006c006c00650072005f005f004a006f0069006e0074005400720061006a006500630074006f007200790043006f006e00740072006f006c006c00650072005f005f0031005f005f004a006f0069006e0074005400720061006a006500630074006f007200790043006f006e00740072006f006c006c00650072005500690100000000000002980000012800fffffffb00000082007200710074005f0063006f006e00740072006f006c006c00650072005f006d0061006e0061006700650072005f005f0043006f006e00740072006f006c006c00650072004d0061006e0061006700650072005f005f0031005f005f0043006f006e00740072006f006c006c00650072004d0061006e006100670065007200550069010000029e000001c80000014000ffffff000004660000000000000004000000040000000800000008fc00000001000000030000000100000036004d0069006e0069006d0069007a006500640044006f0063006b00570069006400670065007400730054006f006f006c0062006100720000000000ffffffff0000000000000000')",
+          "repr(QByteArray.hex)": "QtCore.QByteArray(b'000000ff00000000fd0000000100000003000004b1000002c1fc0100000002fb000000b4007200710074005f006a006f0069006e0074005f007400720061006a006500630074006f00720079005f0063006f006e00740072006f006c006c00650072005f005f004a006f0069006e0074005400720061006a006500630074006f007200790043006f006e00740072006f006c006c00650072005f005f0031005f005f004a006f0069006e0074005400720061006a006500630074006f007200790043006f006e00740072006f006c006c006500720055006901000000000000012d0000012800fffffffc000001330000037e0000023d00fffffffa000000000200000002fb00000058007200710074005f007000750062006c00690073006800650072005f005f005000750062006c00690073006800650072005f005f0031005f005f005000750062006c006900730068006500720057006900640067006500740100000000ffffffff0000008c00fffffffb00000082007200710074005f0063006f006e00740072006f006c006c00650072005f006d0061006e0061006700650072005f005f0043006f006e00740072006f006c006c00650072004d0061006e0061006700650072005f005f0031005f005f0043006f006e00740072006f006c006c00650072004d0061006e0061006700650072005500690100000016000002c1000000a300ffffff000004b10000000000000004000000040000000800000008fc00000001000000030000000100000036004d0069006e0069006d0069007a006500640044006f0063006b00570069006400670065007400730054006f006f006c0062006100720000000000ffffffff0000000000000000')",
           "type": "repr(QByteArray.hex)",
-          "pretty-print": "                  rqt_joint_trajectory_controller__JointTrajectoryController__1__JointTrajectoryControllerUi           rqt_controller_manager__ControllerManager__1__ControllerManagerUi                            6MinimizedDockWidgetsToolbar        "
+          "pretty-print": "                  rqt_joint_trajectory_controller__JointTrajectoryController__1__JointTrajectoryControllerUi          3 ~ =                                                                                                                                                                                                  "
         }
       },
       "groups": {
@@ -29,7 +29,7 @@
     "pluginmanager": {
       "keys": {
         "running-plugins": {
-          "repr": "{'rqt_controller_manager/ControllerManager': [1], 'rqt_joint_trajectory_controller/JointTrajectoryController': [1]}",
+          "repr": "{'rqt_controller_manager/ControllerManager': [1], 'rqt_joint_trajectory_controller/JointTrajectoryController': [1], 'rqt_publisher/Publisher': [1]}",
           "type": "repr"
         }
       },
@@ -92,7 +92,38 @@
                   "type": "repr"
                 },
                 "jtc_name": {
-                  "repr": "'joint_trajectory_controller'",
+                  "repr": "''",
+                  "type": "repr"
+                }
+              },
+              "groups": {}
+            }
+          }
+        },
+        "plugin__rqt_publisher__Publisher__1": {
+          "keys": {},
+          "groups": {
+            "dock_widget__PublisherWidget": {
+              "keys": {
+                "dock_widget_title": {
+                  "repr": "'Message Publisher'",
+                  "type": "repr"
+                },
+                "dockable": {
+                  "repr": "True",
+                  "type": "repr"
+                },
+                "parent": {
+                  "repr": "None",
+                  "type": "repr"
+                }
+              },
+              "groups": {}
+            },
+            "plugin": {
+              "keys": {
+                "publishers": {
+                  "repr": "'[{\\'topic_name\\': \\'/tp_controller/tasks/auv_configuration/target\\', \\'type_name\\': \\'geometry_msgs/PoseStamped\\', \\'rate\\': 1.0, \\'enabled\\': False, \\'publisher_id\\': 0, \\'counter\\': 3, \\'expressions\\': {\\'/tp_controller/tasks/auv_configuration/target/header/frame_id\\': \"\\'world_ned\\'\", \\'/tp_controller/tasks/auv_configuration/target/pose/orientation/w\\': \\'1.0\\', \\'/tp_controller/tasks/auv_configuration/target/pose/position/z\\': \\'8.0\\', \\'/tp_controller/tasks/auv_configuration/target/pose/position/y\\': \\'5.0\\', \\'/tp_controller/tasks/auv_configuration/target/pose/position/x\\': \\'-2.0\\'}}, {\\'topic_name\\': \\'/tp_controller/tasks/bravo_ee_configuration/target\\', \\'type_name\\': \\'geometry_msgs/PoseStamped\\', \\'rate\\': 1.0, \\'enabled\\': False, \\'publisher_id\\': 1, \\'counter\\': 15, \\'expressions\\': {\\'/tp_controller/tasks/bravo_ee_configuration/target/header/frame_id\\': \"\\'world_ned\\'\", \\'/tp_controller/tasks/bravo_ee_configuration/target/pose/position/x\\': \\'-2.0\\', \\'/tp_controller/tasks/bravo_ee_configuration/target/pose/position/y\\': \\'5.0\\', \\'/tp_controller/tasks/bravo_ee_configuration/target/pose/position/z\\': \\'8.0\\', \\'/tp_controller/tasks/bravo_ee_configuration/target/pose/orientation/w\\': \\'0.0\\', \\'/tp_controller/tasks/bravo_ee_configuration/target/pose/orientation/z\\': \\'0.0\\', \\'/tp_controller/tasks/bravo_ee_configuration/target/pose/orientation/x\\': \\'1.0\\', \\'/tp_controller/tasks/bravo_ee_configuration/target/pose/orientation/y\\': \\'0.0\\'}}]'",
                   "type": "repr"
                 }
               },

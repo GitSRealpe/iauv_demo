@@ -791,7 +791,7 @@
 		<actuator name="ThrusterSurgePort" type="thruster">
 			<link name="Vehicle"/>
 			<origin rpy="3.1416 0.0 0.0" xyz="-0.3058 -0.2587 0.16"/>
-			<specs max_setpoint="300.0" inverted_setpoint="true" normalized_setpoint="true"/>
+			<specs max_setpoint="150.0" inverted_setpoint="true" normalized_setpoint="true"/>
 			<propeller diameter="0.18" right="true">
 				<mesh filename="$(find girona1000_description)/resources/meshes/propeller.obj"
 					scale="1.0"/>
@@ -799,7 +799,7 @@
 				<look name="girona1000_propeller"/>
 			</propeller>
 			<rotor_dynamics type="first_order">
-				<time_constant value="2.0"/>
+				<time_constant value="0.5"/>
 			</rotor_dynamics>
 			<thrust_model type="fluid_dynamics">
 				<thrust_coeff forward="0.48" reverse="0.3"/>
@@ -810,7 +810,7 @@
 		<actuator name="ThrusterSurgeStarboard" type="thruster">
 			<link name="Vehicle"/>
 			<origin rpy="0.0 0.0 0.0" xyz="-0.3058 0.2587 0.16"/>
-			<specs max_setpoint="300.0" inverted_setpoint="true" normalized_setpoint="true"/>
+			<specs max_setpoint="150.0" inverted_setpoint="true" normalized_setpoint="true"/>
 			<propeller diameter="0.18" right="true">
 				<mesh filename="$(find girona1000_description)/resources/meshes/propeller.obj"
 					scale="1.0"/>
@@ -818,7 +818,7 @@
 				<look name="girona1000_propeller"/>
 			</propeller>
 			<rotor_dynamics type="first_order">
-				<time_constant value="2.0"/>
+				<time_constant value="0.5"/>
 			</rotor_dynamics>
 			<thrust_model type="fluid_dynamics">
 				<thrust_coeff forward="0.48" reverse="0.3"/>
@@ -829,7 +829,7 @@
 		<actuator name="ThrusterHeaveBow" type="thruster">
 			<link name="Vehicle"/>
 			<origin rpy="0.0 -1.571 1.571" xyz="0.5586 0.0 -0.121"/>
-			<specs max_setpoint="300.0" inverted_setpoint="true" normalized_setpoint="true"/>
+			<specs max_setpoint="150.0" inverted_setpoint="true" normalized_setpoint="true"/>
 			<propeller diameter="0.18" right="true">
 				<mesh filename="$(find girona1000_description)/resources/meshes/propeller.obj"
 					scale="1.0"/>
@@ -837,7 +837,7 @@
 				<look name="girona1000_propeller"/>
 			</propeller>
 			<rotor_dynamics type="first_order">
-				<time_constant value="2.0"/>
+				<time_constant value="0.5"/>
 			</rotor_dynamics>
 			<thrust_model type="fluid_dynamics">
 				<thrust_coeff forward="0.48" reverse="0.3"/>
@@ -848,7 +848,7 @@
 		<actuator name="ThrusterHeaveStern" type="thruster">
 			<link name="Vehicle"/>
 			<origin rpy="0.0 -1.571 -1.571" xyz="-0.5586 0.0 -0.121"/>
-			<specs max_setpoint="300.0" inverted_setpoint="true" normalized_setpoint="true"/>
+			<specs max_setpoint="150.0" inverted_setpoint="true" normalized_setpoint="true"/>
 			<propeller diameter="0.18" right="true">
 				<mesh filename="$(find girona1000_description)/resources/meshes/propeller.obj"
 					scale="1.0"/>
@@ -856,7 +856,7 @@
 				<look name="girona1000_propeller"/>
 			</propeller>
 			<rotor_dynamics type="first_order">
-				<time_constant value="2.0"/>
+				<time_constant value="0.5"/>
 			</rotor_dynamics>
 			<thrust_model type="fluid_dynamics">
 				<thrust_coeff forward="0.48" reverse="0.3"/>
@@ -867,7 +867,7 @@
 		<actuator name="ThrusterSway" type="thruster">
 			<link name="Vehicle"/>
 			<origin rpy="0.0 3.1416 1.571" xyz="-0.0388 0.0307 0.16"/>
-			<specs max_setpoint="300.0" inverted_setpoint="true" normalized_setpoint="true"/>
+			<specs max_setpoint="150.0" inverted_setpoint="true" normalized_setpoint="true"/>
 			<propeller diameter="0.18" right="true">
 				<mesh filename="$(find girona1000_description)/resources/meshes/propeller.obj"
 					scale="1.0"/>
@@ -875,7 +875,7 @@
 				<look name="girona1000_propeller"/>
 			</propeller>
 			<rotor_dynamics type="first_order">
-				<time_constant value="2.0"/>
+				<time_constant value="0.5"/>
 			</rotor_dynamics>
 			<thrust_model type="fluid_dynamics">
 				<thrust_coeff forward="0.48" reverse="0.3"/>
