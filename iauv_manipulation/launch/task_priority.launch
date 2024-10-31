@@ -5,6 +5,6 @@
         <remap from="tp_controller/joint_states" to="/girona1000/joint_states"/>
         <remap from="tp_controller/odometry" to="/girona1000/navigator/odometry"/>
         <remap from="tp_controller/base/command" to="/girona1000/controller/body_velocity_req"/>
-        <remap from="tp_controller/bravo_left/command" to="/girona1000/bravo/joint_velocity_controller/command"/>
+        <remap from="tp_controller/bravo/command" to="/girona1000/bravo/joint_velocity_controller/command"/>
     </node>
 </launch>

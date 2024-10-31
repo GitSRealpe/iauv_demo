@@ -1,7 +1,7 @@
 ### Robot definition
 base_link: "girona1000/base_link"
 actuated_base_dof: [0, 3, 4, 5]
-base_velocity_limits: [0.2, 0.3, 0.2, 0.4]
+base_velocity_limits: [0.1, 0.3, 0.1, 0.4]
 manipulators:
     manipulator1: 
         id: "bravo"
@@ -46,7 +46,7 @@ task_hierarchy:
         id: "bravo_ee_configuration"
         type: "CONFIGURATION"
         link_name: "girona1000/bravo/gripper_camera"
-        gain: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+        gain: [1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
         enabled: true
     task2:
         id: "auv_configuration"
