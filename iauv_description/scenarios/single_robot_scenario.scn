@@ -46,8 +46,8 @@
 
 	<static name="Seabed" type="plane">
 		<material name="Rock"/>
-		<look name="Gray" uv_scale="5.0"/>
-		<world_transform rpy="0.0 0.0 0.0" xyz="0.0 0.0 15.0"/>
+		<look name="seabed" uv_scale="5.0"/>
+		<world_transform rpy="0.0 0.0 0.0" xyz="0.0 0.0 8.0"/>
 	</static>
 
 	<include file="$(find iauv_description)/scenarios/objects.scn"/>
