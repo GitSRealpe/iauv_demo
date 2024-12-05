@@ -55,4 +55,20 @@
     <origin rpy="0 -1.57 0" xyz="-0.5 0 0.3"/>
   </joint>
 
+  <xacro:property name="x_col" value="0.7322"/>
+  <xacro:property name="z_col" value="0.485"/>
+  <link name="$(arg robot_namespace)/collision">
+    <collision>
+      <geometry>
+        <box size="1.0 0.1 1.0"/>
+      </geometry>
+      <origin rpy="0.0 0.0 0.0" xyz="-0.1 0.0 0.0"/>
+    </collision>
+  </link>
+  <joint name="collision_joint" type="fixed">
+    <parent link="$(arg robot_namespace)/origin"/>
+    <child link="$(arg robot_namespace)/collision"/>
+    <origin rpy="0.0 0.0 0.0" xyz="${x_col} 0.0 ${z_col}"/>
+  </joint>
+
 </robot>

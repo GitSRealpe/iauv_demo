@@ -487,12 +487,12 @@
 			<origin xyz="-0.5 0.0 0.3" rpy="0.0 0.0 1.57"/>
 			<axis xyz="0.0 1.0 0.0"/>
 		</joint>
-		<comm name="VLC" device_id="5" type="vlc">
+		<!-- <comm name="VLC" device_id="5" type="vlc">
 			<specs comm_speed="1" range="1000.0" minVFov="90" maxVFov="120"/>
 			<connect device_id="9" occlusion_test="true"/>
 			<origin xyz="-0.5 0.0 0.3" rpy="0.0 0.0 1.57"/>
 			<link name="LinkVlc"/>
-		</comm>
+		</comm> -->
 		<!-- vlc definition -->
 
 		<link name="RB7FingerSmall" type="compound" physics="submerged">

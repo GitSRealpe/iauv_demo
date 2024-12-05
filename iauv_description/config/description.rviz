@@ -6,7 +6,10 @@ Panels:
       Expanded:
         - /Global Options1
         - /Status1
-      Splitter Ratio: 0.5575221180915833
+        - /RobotModel1
+        - /TF1
+        - /TF1/Frames1
+      Splitter Ratio: 0.699999988079071
     Tree Height: 719
   - Class: rviz/Selection
     Name: Selection
@@ -51,9 +54,9 @@ Visualization Manager:
       Plane Cell Count: 10
       Reference Frame: <Fixed Frame>
       Value: true
-    - Alpha: 1
+    - Alpha: 0.5
       Class: rviz/RobotModel
-      Collision Enabled: false
+      Collision Enabled: true
       Enabled: true
       Links:
         All Links Enabled: true
@@ -132,6 +135,11 @@ Visualization Manager:
           Alpha: 1
           Show Axes: false
           Show Trail: false
+        girona1000/collision:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
         girona1000/depth_cam_link:
           Alpha: 1
           Show Axes: false
@@ -208,33 +216,35 @@ Visualization Manager:
         girona1000/base_link:
           Value: false
         girona1000/bravo/base_link:
-          Value: true
+          Value: false
         girona1000/bravo/finger_large_link:
-          Value: true
+          Value: false
         girona1000/bravo/finger_small_link:
-          Value: true
+          Value: false
         girona1000/bravo/gripper_camera:
-          Value: true
+          Value: false
         girona1000/bravo/jaws_base_link:
-          Value: true
+          Value: false
         girona1000/bravo/link1:
-          Value: true
+          Value: false
         girona1000/bravo/link2:
-          Value: true
+          Value: false
         girona1000/bravo/link3:
-          Value: true
+          Value: false
         girona1000/bravo/link4:
-          Value: true
+          Value: false
         girona1000/bravo/link5:
-          Value: true
+          Value: false
         girona1000/bravo/link6:
-          Value: true
+          Value: false
         girona1000/bravo/push_rod_link:
-          Value: true
+          Value: false
         girona1000/camera:
+          Value: false
+        girona1000/collision:
           Value: true
         girona1000/depth_cam_link:
-          Value: true
+          Value: false
         girona1000/dvl:
           Value: false
         girona1000/dvl_altitude:
@@ -244,7 +254,7 @@ Visualization Manager:
         girona1000/ins:
           Value: false
         girona1000/origin:
-          Value: true
+          Value: false
         girona1000/pressure:
           Value: false
         girona1000/thruster_0:
@@ -258,11 +268,11 @@ Visualization Manager:
         girona1000/thruster_4:
           Value: false
         girona1000/vlc_link:
-          Value: true
+          Value: false
         world:
           Value: false
       Marker Alpha: 1
-      Marker Scale: 1
+      Marker Scale: 0.5
       Name: TF
       Show Arrows: true
       Show Axes: true
@@ -290,6 +300,8 @@ Visualization Manager:
                             girona1000/bravo/push_rod_link:
                               {}
               girona1000/camera:
+                {}
+              girona1000/collision:
                 {}
               girona1000/depth_cam_link:
                 {}
@@ -344,7 +356,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 2.0648770332336426
+      Distance: 2.3086233139038086
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -352,17 +364,17 @@ Visualization Manager:
         Value: false
       Field of View: 0.7853981852531433
       Focal Point:
-        X: -0.6169968247413635
-        Y: -0.34826183319091797
-        Z: -0.1702362596988678
+        X: 0.5948140025138855
+        Y: 0.0012720439117401838
+        Z: -0.1005590632557869
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.18979594111442566
+      Pitch: 0.35979655385017395
       Target Frame: <Fixed Frame>
-      Yaw: 2.300394296646118
+      Yaw: 0.8203973770141602
     Saved: ~
 Window Geometry:
   Displays:

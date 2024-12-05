@@ -90,3 +90,7 @@ Each message of this array is a [``LabeledPointCloud2``](https://gitsrealpe.gith
     <td><img src="/media/pcd_label_example.jpeg" width="600"></td>
   </tr></thead>
 </table>
+
+<video width="320" height="240" controls>
+  <source src="/media/video.mp4" type="video/mp4">
+</video>
