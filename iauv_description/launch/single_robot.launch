@@ -21,7 +21,7 @@
         args="0 0 0 0 0 3.1415 world world_ned"/>
 
     <node name="vlc2world" pkg="tf2_ros" type="static_transform_publisher"
-        args="-10.0 5.0 6.4 0 0 1.57 world_ned vlc_station"/>
+        args="-10.0 5.0 5.3 0 0 1.57 world_ned vlc_station"/>
 
     <include file="$(find iauv_description)/launch/utils/depth_cam.launch"/>
 
