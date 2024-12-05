@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<scenario>
+
+    <looks>
+        <!-- <look name="seabed" rgb="0.7 0.7 0.5" roughness="0.9" normal_map="textures/sand_normal.png"/> -->
+        <look name="bluefish" gray="1.0" roughness="0.3" texture="creatures/BlueFish/bluefish.png"/>
+    </looks>
+
+    <animated name="bluefish" type="model" collisions="false">
+        <physical>
+            <!-- <mesh filename="$(find iauv_description)/resources/meshes/structure.obj" scale="1.0"/> -->
+            <mesh filename="creatures/BlueFish/bluefish2.obj" scale="1.0"/>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+        </physical>
+        <visual>
+            <mesh filename="creatures/BlueFish/bluefish2.obj" scale="1.0"/>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+        </visual>
+
+        <material name="Neutral"/>
+        <look name="bluefish"/>
+        <trajectory type="pwl" playback="repeat">
+            <keypoint time="0.0" xyz="0.0 1.0 2.0" rpy="0.0 0.0 0.0"/>
+            <keypoint time="5.0" xyz="10.0 1.0 2.0" rpy="0.0 0.0 1.57"/>
+            <keypoint time="20.0" xyz="10.0 2.0 2.0" rpy="0.0 0.0 0.0"/>
+        </trajectory>
+    </animated>
+
+</scenario>
