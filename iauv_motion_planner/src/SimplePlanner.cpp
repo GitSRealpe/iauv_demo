@@ -58,7 +58,7 @@ namespace iauv_motion_planner
             pose.pose.position.y = next.translation().y();
             pose.pose.position.z = next.translation().z();
 
-            // auto q = Eigen::Quaterniond(fwd.rotation());
+            auto q = Eigen::Quaterniond(next.rotation());
             pose.pose.orientation.x = q.x();
             pose.pose.orientation.y = q.y();
             pose.pose.orientation.z = q.z();
