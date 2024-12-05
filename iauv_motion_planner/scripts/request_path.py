@@ -43,20 +43,21 @@ def call_service():
         # param.value = "5"
         # req.params.append(param)
 
-        req.start.position.x = -5
-        req.start.position.y = -5
-        req.start.position.z = 5
-        req.start.orientation.w = 1
+        req.start.position.x = -10
+        req.start.position.y = -2
+        req.start.position.z = 8
+        req.start.orientation.z = 0.707
+        req.start.orientation.w = 0.707
         # goal or center of request
-        req.goal.position.x = 0
-        req.goal.position.y = 0
-        req.goal.position.z = 3
+        req.goal.position.x = -10
+        req.goal.position.y = 5 - 2
+        req.goal.position.z = 5.20
         # req.goal.orientation.w = 0.707
         # req.goal.orientation.z = 0.707
         # req.goal.orientation.w = 0.924
         # req.goal.orientation.z = 0.383
-        req.goal.orientation.w = 1
-        req.goal.orientation.z = 0
+        req.goal.orientation.w = 0.707
+        req.goal.orientation.z = -0.707
 
         # Call the service
         response = service_proxy(req)
