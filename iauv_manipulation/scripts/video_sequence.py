@@ -126,7 +126,7 @@ class IAUVIntervention(StateMachine):
         auvPose = PoseStamped()
         auvPose.header.stamp = rospy.Time.now()
         auvPose.header.frame_id = "world_ned"
-        auvPose.pose.position.x = -5.0
+        auvPose.pose.position.x = -10.0
         auvPose.pose.position.y = 4.5
         auvPose.pose.position.z = 8.0
         auvPose.pose.orientation.w = 1
@@ -178,7 +178,7 @@ class IAUVIntervention(StateMachine):
         req = MotionRequest()
         req.request = "unfold"
         mtnSrv(req)
-        rospy.sleep(10)
+        rospy.sleep(8)
 
         print("done unfolding")
         self.send("move_arm")
