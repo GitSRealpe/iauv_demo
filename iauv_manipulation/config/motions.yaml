@@ -1,5 +1,5 @@
 motions:
-  unfold:
+  - motion_name: "unfold"
     joint_names:
       - "girona1000/bravo/joint1"
       - "girona1000/bravo/joint2"
@@ -18,7 +18,7 @@ motions:
         velocities: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
         time_from_start: {secs: 6.0, nsecs: 0.0}
 
-  fold:
+  - motion_name: "fold"
     joint_names:
       - "girona1000/bravo/joint1"
       - "girona1000/bravo/joint2"
