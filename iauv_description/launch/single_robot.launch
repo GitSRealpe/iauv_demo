@@ -26,10 +26,11 @@
     <include file="$(find iauv_description)/launch/utils/depth_cam.launch"/>
 
     <!-- Run Simulator -->
-    <node name="stonefish_simulator" pkg="stonefish_ros" type="parsed_simulator"
+    <node name="stonefish_simulator" pkg="iauv_description" type="stonefish_api"
         args="$(arg simulation_data) $(arg scenario_description)
                   $(arg simulation_rate) $(arg graphics_resolution) 
-                  $(arg graphics_quality)">
+                  $(arg graphics_quality)"
+        output="screen">
         <remap from="girona1000/bravo/joint_states" to="girona1000/joint_states"/>
         <remap from="robot_description" to="girona1000/robot_description"/>
     </node>

@@ -41,12 +41,12 @@
             <ros_publisher topic="/vlc_structure"/>
         </comm> -->
 
-        <comm name="VLC9" device_id="9" type="vlc">
+        <!-- <comm name="VLC9" device_id="9" type="vlc">
             <specs comm_speed="1" range="1000.0" minVFov="90" maxVFov="120"/>
             <connect device_id="5" occlusion_test="true"/>
             <origin xyz="0.0 0.0 0.17" rpy="0.0 0.0 0.0"/>
             <link name="VlcLink"/>
-        </comm>
+        </comm> -->
 
         <world_transform rpy="0.0 0.0 $(arg start_yaw)" xyz="$(arg start_position)"/>
     </robot>
