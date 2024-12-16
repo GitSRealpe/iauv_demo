@@ -474,6 +474,26 @@
 			<link name="RB7JawsBase"/>
 		</light> -->
 
+		<!-- suction cup -->
+		<link name="SuccLink" type="cylinder" physics="submerged">
+			<dimensions radius="0.01" height="0.01"/>
+			<origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+			<material name="Steel"/>
+			<look name="Neutral"/>
+		</link>
+		<joint name="SuccJoint" type="fixed">
+			<parent name="RB7JawsBase"/>
+			<child name="SuccLink"/>
+			<origin xyz="0.0 0.0 0.2" rpy="0.0 0.0 0.0"/>
+		</joint>
+		<actuator name="SuctionCup" type="suction_cup">
+			<link name="RB7JawsBase"/>
+			<origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
+			<ros_publisher topic="/$(arg robot_name)/bravo/vacuum_gripper/pump_state"/>
+			<ros_service topic="/$(arg robot_name)/bravo/vacuum_gripper/set_pump"/>
+		</actuator>
+		<!-- suction cup -->
+
 		<!-- vlc definition -->
 		<link name="LinkVlc" type="cylinder" physics="submerged">
 			<dimensions radius="0.03" height="0.126"/>
