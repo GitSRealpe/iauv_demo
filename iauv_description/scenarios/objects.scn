@@ -21,6 +21,14 @@
         <world_transform xyz="3.0 0.0 7.0" rpy="0.0 0.0 0.75"/>
     </static>
 
+    <dynamic name="Box" type="box" physics="submerged" buoyant="true">
+        <dimensions xyz="0.1 0.1 0.1"/>
+        <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+        <material name="Steel"/>
+        <look name="Gray"/>
+        <world_transform xyz="3.0 0.0 5.0" rpy="0.0 0.0 0.75"/>
+    </dynamic>
+
     <!-- <static name="Torus" type="torus" physics="submerged" buoyant="true">
         <dimensions major_radius="0.5" minor_radius="0.2"/>
         <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>

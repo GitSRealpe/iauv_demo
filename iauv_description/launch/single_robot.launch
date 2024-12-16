@@ -26,11 +26,10 @@
     <include file="$(find iauv_description)/launch/utils/depth_cam.launch"/>
 
     <!-- Run Simulator -->
-    <node name="stonefish_simulator" pkg="iauv_description" type="stonefish_api"
+    <node name="stonefish_simulator" pkg="stonefish_ros" type="parsed_simulator"
         args="$(arg simulation_data) $(arg scenario_description)
                   $(arg simulation_rate) $(arg graphics_resolution) 
-                  $(arg graphics_quality)"
-        output="screen">
+                  $(arg graphics_quality)">
         <remap from="girona1000/bravo/joint_states" to="girona1000/joint_states"/>
         <remap from="robot_description" to="girona1000/robot_description"/>
     </node>
@@ -75,11 +74,11 @@
             <node name="controller_spawner" pkg="controller_manager" type="spawner" output="screen"
                 args="joint_state_controller joint_trajectory_controller finger_small_position_controller finger_large_position_controller"/>
             <!-- Launch the predefined motions node-->
-            <!-- <node name="predefined_motions" pkg="iauv_description"
-                type="predefined_positions" output="screen">
-                <rosparam command="load"
-                    file="$(find iauv_description)/config/predefined_motions/bravo.yaml"/>
-            </node> -->
+            <rosparam command="load" file="$(find iauv_manipulation)/config/motions.yaml"/>
+            <node name="arm_motion_service" pkg="iauv_manipulation" type="arm_motion_srv">
+                <param name="srv_name" value="/bravo/motions"/>
+                <param name="controller" value="/girona1000/bravo/joint_trajectory_controller"/>
+            </node>
         </group>
     </group>
 
