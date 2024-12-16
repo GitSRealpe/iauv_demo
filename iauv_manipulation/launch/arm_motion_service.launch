@@ -1,7 +1,7 @@
 <launch>
 
-    <rosparam command="load" file="$(find iauv_intervention)/config/motions.yaml"/>
-    <node name="arm_motion_service" pkg="iauv_intervention" type="arm_motion_srv" output="screen">
+    <rosparam command="load" file="$(find iauv_manipulation)/config/motions.yaml"/>
+    <node name="arm_motion_service" pkg="iauv_manipulation" type="arm_motion_srv" output="screen">
         <param name="srv_name" value="/bravo/motions"/>
         <param name="controller" value="/girona1000/bravo/joint_trajectory_controller"/>
     </node>

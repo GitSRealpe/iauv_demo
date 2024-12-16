@@ -21,7 +21,7 @@ public:
     arm_motion_srv(/* args */);
     ~arm_motion_srv();
 
-    bool motion_request(iauv_intervention_msgs::Motion::Request &req, iauv_intervention_msgs::Motion::Response &res);
+    bool motion_request(iauv_manipulation::Motion::Request &req, iauv_manipulation::Motion::Response &res);
 };
 
 arm_motion_srv::arm_motion_srv(/* args */)
@@ -54,7 +54,7 @@ arm_motion_srv::~arm_motion_srv()
     // ac.~SimpleActionClient();
 }
 
-bool arm_motion_srv::motion_request(iauv_intervention_msgs::Motion::Request &req, iauv_intervention_msgs::Motion::Response &res)
+bool arm_motion_srv::motion_request(iauv_manipulation::Motion::Request &req, iauv_manipulation::Motion::Response &res)
 {
     ROS_INFO("Requested [%s] arm motion", req.request.c_str());
 
