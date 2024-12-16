@@ -120,8 +120,8 @@ list(APPEND LIBRARIES
 #   ${catkin_LIBRARIES}
 # )
 
-add_executable(stonefish_api scripts/stonefish_api.cpp)
-target_link_libraries(stonefish_api ${catkin_LIBRARIES} ${LIBRARIES} Stonefish::Stonefish)
+# add_executable(stonefish_api scripts/stonefish_api.cpp)
+# target_link_libraries(stonefish_api ${catkin_LIBRARIES} ${LIBRARIES} Stonefish::Stonefish)
 
 #############
 ## Install ##
