@@ -6,17 +6,17 @@ This package  contains the launch for dual Girona AUV.
 
 * To run the scenario with three robots and Docking stations: 
 ```
-roslaunch duel_gironas tri_robot.launch 
+roslaunch dual_gironas dual_robotAndDS.launch 
 ```
 * To start the action node:
 ```
-rosrun duel_gironas multidocking_node.py
+rosrun dual_gironas multidocking_node.py
 ```
 * To start the Dock/Undock action use the msgs: 
 ```
 multidocking/DockingActionGoal
 ```
-Specify the target robot (robotA, robotB, robotC) and the action (dock, undock): 
+Specify the target robot (robotA, robotB, robotC) and the action (dock, undock), example: 
 ```
 rostopic pub /docking_action_robotB/goal multidocking/DockingActionGoal
 "header:
@@ -33,6 +33,7 @@ goal_id:
 goal:
   action: 'dock'" --once
 ```
+The ```--once``` is needed in the terminal as this will make the action publish once. In code we dont needs it, just publish the msg once once. 
 * To print the feedback or Result:
 ```  
 rostopic echo /docking_action_robotA/result

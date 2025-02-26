@@ -14,7 +14,6 @@
 				<material name="Aluminium"/>
 				<look name="steel"/>
 				<compound_transform rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
-				<!-- <world_transform rpy="$(arg offset_row) $(arg offset_pitch) $(arg offset_yaw)" xyz="$(arg offset_x) $(arg offset_y) $(arg offset_z)"/> -->
 			</external_part>
 		</base_link>
 
@@ -52,18 +51,32 @@
             </external_part>
         </link>
 
+		<!-- vlc definition -->
+		<link name="LinkVlc" type="cylinder" physics="submerged">
+			<dimensions radius="0.03" height="0.126"/>
+			<origin xyz="-0.875 -0.58 -1.46" rpy="0.0 1.571 0.7535"/>
+			<material name="Steel"/>
+			<look name="Neutral"/>
+		</link>
+		<joint name="Joint1" type="fixed">
+			<parent name="Base"/>
+			<child name="LinkVlc"/>
+			<origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+			<axis xyz="0.0 1.0 0.0"/>
+		</joint>
+
 		 <!-- joints -->
         <joint name="lock/lock1" type="prismatic">
             <parent name="Base"/>
             <child name="lock1"/>
-            <origin rpy="0.0 0.0 0.0" xyz=" 0.0 0.02 0.0" />
+            <origin rpy="0.0 0.0 0.0" xyz=" 0.02 0.02 -0.02" />
             <axis xyz="-1.0 0.0 0.0"/>
             <limits min="0" max="0.25"/>
         </joint>
         <joint name="lock/lock2" type="prismatic">
             <parent name="Base"/>
             <child name="lock2"/>
-            <origin rpy="0.0 0.0 0.0" xyz=" 0.0 0.01 0.0" />
+            <origin rpy="0.0 0.0 0.0" xyz=" 0.02 0.01 -0.02" />
             <axis xyz="1.0 0.0 0.0"/>
             <limits min="0" max="0.25"/>
         </joint>
@@ -352,22 +365,7 @@
 		<visual>
 			<mesh filename="$(find dual_gironas)/resources/meshes/ds_funnel_x_3.obj" scale="1.0"/>
 			<origin rpy="0.0 0.0 ${pi}" xyz="0.0 1.118 0.0"/>
-		</visual>0.256
-0.256
-0.256
-0.256
-0.256
-0.256
-0.256
-0.256
-0.256
-0.256
-0.256
-0.256
-0.256
-0.256
-0.256
-0.256
+		</visual>
 		<material name="Fiberglass"/>
 		<look name="guide"/>
 		<world_transform rpy="$(arg offset_row) $(arg offset_pitch) $(arg offset_yaw)" xyz="$(arg offset_x) $(arg offset_y) $(arg offset_z)"/>

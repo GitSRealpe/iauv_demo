@@ -224,16 +224,12 @@ class DockingServer(StateMachine):
     
     def move_auv_WWP(self,error):
         self.position_error()
-        self.change_worldwaypoint()
         self.world_waypoint_publisher()
         print(f"Target:{np.round(self.ned_target_pose[:-1,-1].T,2)}")
         while (not rospy.is_shutdown() and  self.position_mean_error > error):
             self.position_error()
-            self.world_waypoint_publisher()
-            # print(f"Position:{np.round(self.nav_ned_T_b[:-1,-1].T,2)}, error:{round(self.position_mean_error,2)}, z_error:{round(self.position_mean_error_z,2)}  ",end="\r")
-            
-            self.yaw_axis_disable = True if self.position_mean_error>1.0 else False
-            
+            self.world_waypoint_publisher() 
+            self.yaw_axis_disable = True if self.position_mean_error>3.0 else False
             self.rate.sleep()
 
     def heave(self,time,force_z):
@@ -290,7 +286,7 @@ class DockingServer(StateMachine):
         self.new_coordinates[0] = self.ds_north
         self.new_coordinates[1] = self.ds_east
         self.new_coordinates[2] = self.ds_down - z_axis
-        self.new_coordinates[3] = 1.571
+        self.new_coordinates[3] = 0.0 
 
         self.ned_target_pose = self.quat_to_tf(np.array([self.new_coordinates[0],
                                                          self.new_coordinates[1],
@@ -336,13 +332,13 @@ class DockingServer(StateMachine):
         # publishing quaternion from the ArUco pose estimation 
         ds_pose.pose.pose.orientation.x = 0
         ds_pose.pose.pose.orientation.y = 0
-        ds_pose.pose.pose.orientation.z = 1
-        ds_pose.pose.pose.orientation.w = 0
+        ds_pose.pose.pose.orientation.z = 0.7071788
+        ds_pose.pose.pose.orientation.w = 0.7070348
         
         self.waypoint_display.publish(ds_pose)
 
     def world_waypoint_publisher(self):
-        self.way_req.header.stamp = rospy.Time().now()
+        self.change_worldwaypoint()
         self.req_pub.publish(self.way_req)
         self.display_waypoint()
 

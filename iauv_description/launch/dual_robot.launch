@@ -1,10 +1,8 @@
 <launch>
     <!-- Configurable arguments -->
-    <!-- <arg name="robot_nameA" default="robotA"/> -->
-    <!-- <arg name="robot_nameB" default="robotB"/> -->
-
     <arg name="enable_rviz" default="true"/>
 
+    
     <!-- Simulation parameters -->
     <arg name="simulation_data" value="$(find iauv_description)/resources"/>
     <arg name="scenario_description"
