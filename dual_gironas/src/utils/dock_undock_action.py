@@ -5,7 +5,7 @@ import numpy as np
 import tf
 import os
 
-from multidocking.msg import DockingAction, DockingFeedback, DockingResult  
+from dual_gironas.msg import DockingAction, DockingFeedback, DockingResult  
 from std_srvs.srv import Trigger, TriggerRequest, TriggerResponse
 from statemachine import StateMachine, State
 from geometry_msgs.msg import PoseWithCovarianceStamped 
