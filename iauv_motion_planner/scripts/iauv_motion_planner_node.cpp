@@ -15,7 +15,7 @@ private:
     iauv_motion_planner::ScanPlannerPtr scan;
     iauv_motion_planner::SimplePlannerPtr simple;
     iauv_motion_planner::CircPlannerPtr circ;
-    // iauv_motion_planner::ScenePtr scn;
+    iauv_motion_planner::ScenePtr scn;
 
     ros::Publisher pub;
     ros::ServiceServer service_;
@@ -31,7 +31,7 @@ public:
 iauv_motion_planner_node::iauv_motion_planner_node(ros::NodeHandle &nh)
 {
 
-    // scn = std::make_shared<iauv_motion_planner::Scene>();
+    scn = std::make_shared<iauv_motion_planner::Scene>(nh);
     simple = std::make_shared<iauv_motion_planner::SimplePlanner>(nh);
     scan = std::make_shared<iauv_motion_planner::ScanPlanner>(nh);
     circ = std::make_shared<iauv_motion_planner::CircPlanner>(nh);

@@ -11,11 +11,11 @@ def call_service():
 
     # Create a service proxy
     rospy.wait_for_service(
-        "/iauv_motion_planner/getPath"
+        "robotA/iauv_motion_planner/getPath"
     )  # Wait until the service is available
     try:
         service_proxy = rospy.ServiceProxy(
-            "/iauv_motion_planner/getPath", GetPath
+            "robotA/iauv_motion_planner/getPath", GetPath
         )  # Replace with your actual service type
 
         req = GetPathRequest()
@@ -43,7 +43,7 @@ def call_service():
         # param.value = "5"
         # req.params.append(param)
 
-        req.start.position.x = -10
+        req.start.position.x = 10
         req.start.position.y = -2
         req.start.position.z = 8
         req.start.orientation.z = 0.707

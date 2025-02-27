@@ -1,0 +1,31 @@
+<launch>
+
+    <group ns="robotA">
+        <node name="iauv_motion_planner" pkg="iauv_motion_planner" type="iauv_motion_planner_node" output="screen">
+            <remap from="/iauv_motion_planner/path" to="motion_planner/path"/>
+            <param name="iauv_scene_topic" value="scene_topic"/>
+        </node>
+        <node name="pursuit_controller" pkg="girona_utils" type="pursuit_controller" output="screen">
+            <param name="max_vel" value="0.3"/>
+            <param name="max_rot_vel" value="0.35"/>
+            <param name="output_interface" value="cola2_controller"/>
+            <param name="base_link" value="robotA/base_link"/>
+            <param name="velocity_topic" value="/robotA/controller/body_velocity_req"/>
+        </node>
+    </group>
+
+    <group ns="robotB">
+        <node name="iauv_motion_planner" pkg="iauv_motion_planner" type="iauv_motion_planner_node" output="screen">
+            <remap from="/iauv_motion_planner/path" to="motion_planner/path"/>
+            <param name="iauv_scene_topic" value="scene_topic"/>
+        </node>
+        <node name="pursuit_controller" pkg="girona_utils" type="pursuit_controller" output="screen">
+            <param name="max_vel" value="0.3"/>
+            <param name="max_rot_vel" value="0.35"/>
+            <param name="output_interface" value="cola2_controller"/>
+            <param name="base_link" value="robotB/base_link"/>
+            <param name="velocity_topic" value="/robotB/controller/body_velocity_req"/>
+        </node>
+    </group>
+
+</launch>
