@@ -64,6 +64,12 @@
 			<origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
 			<axis xyz="0.0 1.0 0.0"/>
 		</joint>
+					<light name="Spot">
+						<specs radius="0.02" cone_angle="20.0" illuminance="500000.0"/>
+						<color rgb="0.1 0.1 1.0"/>
+						<origin xyz="-0.875 -0.58 -1.46" rpy="1.57 1.571 -0.7535"/>
+						<link name="LinkVlc"/>
+					</light>
 
 		 <!-- joints -->
         <joint name="lock/lock1" type="prismatic">

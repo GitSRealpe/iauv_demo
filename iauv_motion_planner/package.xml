@@ -31,6 +31,17 @@
   <depend>nav_msgs</depend>
   <depend>girona_utils</depend>
 
+  <!-- TODO: double check these -->
+  <exec_depend>joint_trajectory_controller</exec_depend>
+  <exec_depend>fcl</exec_depend>
+  <exec_depend>velocity_controllers</exec_depend>
+  <exec_depend>joint_state_controller</exec_depend>
+  <exec_depend>joint_state_publisher_gui</exec_depend>
+  <exec_depend>octomap_server</exec_depend>
+  <exec_depend>depth_image_proc</exec_depend>
+  <exec_depend>octomap_rviz_plugins</exec_depend>
+  <!-- end TODO -->
+
   <build_depend>message_generation</build_depend>
   <exec_depend>message_runtime</exec_depend>
 
