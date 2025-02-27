@@ -304,6 +304,88 @@
 				<look name="girona500_gray"/>
 				<compound_transform rpy="0.0 1.571 0.0" xyz="0.0 0.35 -0.1475"/>
 			</internal_part>
+			<!-- extension arms to guide the robot in x direction of the docking station -->
+			<external_part name="Side1" type="model" physics="submerged">
+				<physical>
+					<mesh filename="$(find dual_gironas)/resources/meshes/auv_appendix_p1_phy.obj" scale="1.0"/>
+					<origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
+				</physical>
+				<visual>
+					<mesh filename="$(find dual_gironas)/resources/meshes/auv_appendix_p1_vis.obj" scale="1.0"/>
+					<origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
+				</visual>
+				<material name="Aluminium"/>
+				<look name="steel"/>
+				<compound_transform rpy="0.0 ${pi} 0.0" xyz="-0.0 0.0 -0.0"/>
+			</external_part>
+			<external_part name="Side1_cylinder" type="model" physics="submerged">
+				<physical>
+					<mesh filename="$(find dual_gironas)/resources/meshes/auv_appendix_p2_phy.obj" scale="1.0"/>
+					<origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
+				</physical>
+				<visual>
+					<mesh filename="$(find dual_gironas)/resources/meshes/auv_appendix_p2_vis.obj" scale="1.0"/>
+					<origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
+				</visual>
+				<material name="Aluminium"/>
+				<look name="steel"/>
+				<compound_transform rpy="0.0 ${pi} 0.0" xyz="-0.0 0.0 -0.0"/>
+			</external_part>
+			<external_part name="Side1_tip" type="model" physics="submerged">
+				<physical>
+					<mesh filename="$(find dual_gironas)/resources/meshes/auv_appendix_p3.obj" scale="1.0"/>
+					<origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
+				</physical>
+				<visual>
+					<mesh filename="$(find dual_gironas)/resources/meshes/auv_appendix_p3.obj" scale="1.0"/>
+					<origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
+				</visual>
+				<material name="Aluminium"/>
+				<look name="steel"/>
+				<compound_transform rpy="0.0 ${pi} 0.0" xyz="-0.0 0.0 -0.0"/>
+			</external_part>
+
+			<!-- side 2 -->
+			<external_part name="Side2" type="model" physics="submerged">
+				<physical>
+					<mesh filename="$(find dual_gironas)/resources/meshes/auv_appendix_p1_phy.obj" scale="1.0"/>
+					<origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
+				</physical>
+				<visual>
+					<mesh filename="$(find dual_gironas)/resources/meshes/auv_appendix_p1_vis.obj" scale="1.0"/>
+					<origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
+				</visual>
+				<material name="Aluminium"/>
+				<look name="steel"/>
+				<compound_transform rpy="${pi} 0.0 0.0" xyz="-0.0 0.0 -0.0"/>
+			</external_part>
+			<external_part name="Side2_cylinder" type="model" physics="submerged">
+				<physical>
+					<mesh filename="$(find dual_gironas)/resources/meshes/auv_appendix_p2_phy.obj" scale="1.0"/>
+					<origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
+				</physical>
+				<visual>
+					<mesh filename="$(find dual_gironas)/resources/meshes/auv_appendix_p2_vis.obj" scale="1.0"/>
+					<origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
+				</visual>
+				<material name="Aluminium"/>
+				<look name="steel"/>
+				<compound_transform rpy="${pi} 0.0 0.0" xyz="-0.0 0.0 -0.0"/>
+			</external_part>
+			<external_part name="Side2_tip" type="model" physics="submerged">
+				<physical>
+					<mesh filename="$(find dual_gironas)/resources/meshes/auv_appendix_p3.obj" scale="1.0"/>
+					<origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
+				</physical>
+				<visual>
+					<mesh filename="$(find dual_gironas)/resources/meshes/auv_appendix_p3.obj" scale="1.0"/>
+					<origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
+				</visual>
+				<material name="Aluminium"/>
+				<look name="steel"/>
+				<compound_transform rpy="${pi} 0.0 0.0" xyz="-0.0 0.0 -0.0"/>
+			</external_part>
+
 		</base_link>
 
 		<!-- Reach Bravo 7 -->
@@ -476,6 +558,13 @@
 			<origin xyz="-0.5 0.0 0.3" rpy="0.0 0.0 1.57"/>
 			<axis xyz="0.0 1.0 0.0"/>
 		</joint>
+		<light name="Spot">
+			<specs radius="0.03" cone_angle="30.0" illuminance="100000.0"/>
+			<color rgb="0.1 0.0 1.0"/>
+			<origin xyz="0.0 0.0 0.126" rpy="-1.57 0.0 0.0"/>
+			<link name="LinkVlc"/>
+		</light>
+
 		<!-- <comm name="VLC" device_id="5" type="vlc">
 			<specs comm_speed="1" range="1000.0" minVFov="90" maxVFov="120"/>
 			<connect device_id="9" occlusion_test="true"/>
