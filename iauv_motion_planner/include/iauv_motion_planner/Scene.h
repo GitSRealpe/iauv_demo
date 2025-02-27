@@ -34,7 +34,7 @@ namespace iauv_motion_planner
         void pathCb(const nav_msgs::PathConstPtr &msg);
 
     public:
-        Scene();
+        Scene(ros::NodeHandle &nh);
         ~Scene();
 
         ros::ServiceServer service_;

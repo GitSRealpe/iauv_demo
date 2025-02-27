@@ -10,9 +10,15 @@
 namespace iauv_motion_planner
 {
 
-    Scene::Scene()
+    Scene::Scene(ros::NodeHandle &nh) : nh_(nh)
     {
-        visual_tools_ = std::make_shared<rviz_visual_tools::RvizVisualTools>("world_ned", "/iauv_scene");
+        std::cout<<"scene print"<<"\n";
+        std::cout << nh.getNamespace() << "\n\n";
+        std::string scene_topic;
+        nh.getParam("iauv_scene_topic", scene_topic);
+        std::cout<<"using: "<<scene_topic<<"\n";
+
+        visual_tools_ = std::make_shared<rviz_visual_tools::RvizVisualTools>("world_ned", scene_topic);
 
         counter = 0;
 
