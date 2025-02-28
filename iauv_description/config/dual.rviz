@@ -6,9 +6,9 @@ Panels:
       Expanded:
         - /Global Options1
         - /Status1
-        - /RobotModel2
+        - /pathViz1
       Splitter Ratio: 0.474097341299057
-    Tree Height: 381
+    Tree Height: 719
   - Class: rviz/Selection
     Name: Selection
   - Class: rviz/Tool Properties
@@ -133,6 +133,11 @@ Visualization Manager:
           Alpha: 1
           Show Axes: false
           Show Trail: false
+        robotA/collision:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
         robotA/depth_cam_link:
           Alpha: 1
           Show Axes: false
@@ -187,253 +192,16 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
-      Name: RobotModel
+        robotA/vlc_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+      Name: robotA
       Robot Description: robotA/robot_description
       TF Prefix: ""
       Update Interval: 0
       Value: true
       Visual Enabled: true
-    - Class: rviz/TF
-      Enabled: true
-      Filter (blacklist): ""
-      Filter (whitelist): ""
-      Frame Timeout: 15
-      Frames:
-        All Enabled: false
-        robotA/back_thrusters_support:
-          Value: true
-        robotA/base_link:
-          Value: true
-        robotA/bravo/base_link:
-          Value: true
-        robotA/bravo/finger_large_link:
-          Value: true
-        robotA/bravo/finger_small_link:
-          Value: true
-        robotA/bravo/gripper_camera:
-          Value: true
-        robotA/bravo/jaws_base_link:
-          Value: true
-        robotA/bravo/link1:
-          Value: true
-        robotA/bravo/link2:
-          Value: true
-        robotA/bravo/link3:
-          Value: true
-        robotA/bravo/link4:
-          Value: true
-        robotA/bravo/link5:
-          Value: true
-        robotA/bravo/link6:
-          Value: true
-        robotA/camera:
-          Value: true
-        robotA/depth_cam_link:
-          Value: true
-        robotA/dvl:
-          Value: true
-        robotA/dvl_altitude:
-          Value: true
-        robotA/gps:
-          Value: true
-        robotA/ins:
-          Value: true
-        robotA/origin:
-          Value: true
-        robotA/pressure:
-          Value: true
-        robotA/thruster_0:
-          Value: true
-        robotA/thruster_1:
-          Value: true
-        robotA/thruster_2:
-          Value: true
-        robotA/thruster_3:
-          Value: true
-        robotA/thruster_4:
-          Value: true
-        robotB/back_thrusters_support:
-          Value: true
-        robotB/base_link:
-          Value: true
-        robotB/bravo/base_link:
-          Value: true
-        robotB/bravo/gripper_camera:
-          Value: true
-        robotB/bravo/jaws_base_link:
-          Value: true
-        robotB/bravo/link6:
-          Value: true
-        robotB/camera:
-          Value: true
-        robotB/depth_cam_link:
-          Value: true
-        robotB/dvl:
-          Value: true
-        robotB/dvl_altitude:
-          Value: true
-        robotB/gps:
-          Value: true
-        robotB/ins:
-          Value: true
-        robotB/origin:
-          Value: true
-        robotB/pressure:
-          Value: true
-        robotB/thruster_0:
-          Value: true
-        robotB/thruster_1:
-          Value: true
-        robotB/thruster_2:
-          Value: true
-        robotB/thruster_3:
-          Value: true
-        robotB/thruster_4:
-          Value: true
-        world:
-          Value: false
-        world_ned:
-          Value: false
-      Marker Alpha: 1
-      Marker Scale: 1
-      Name: TF
-      Show Arrows: true
-      Show Axes: true
-      Show Names: true
-      Tree:
-        robotB/bravo/link6:
-          robotB/bravo/jaws_base_link:
-            robotB/bravo/gripper_camera:
-              {}
-        world:
-          world_ned:
-            robotA/base_link:
-              robotA/origin:
-                robotA/back_thrusters_support:
-                  {}
-                robotA/bravo/base_link:
-                  robotA/bravo/link1:
-                    robotA/bravo/link2:
-                      robotA/bravo/link3:
-                        robotA/bravo/link4:
-                          robotA/bravo/link5:
-                            robotA/bravo/link6:
-                              robotA/bravo/jaws_base_link:
-                                robotA/bravo/finger_large_link:
-                                  {}
-                                robotA/bravo/finger_small_link:
-                                  {}
-                                robotA/bravo/gripper_camera:
-                                  {}
-                robotA/camera:
-                  {}
-                robotA/depth_cam_link:
-                  {}
-                robotA/dvl:
-                  robotA/dvl_altitude:
-                    {}
-                robotA/gps:
-                  {}
-                robotA/ins:
-                  {}
-                robotA/pressure:
-                  {}
-                robotA/thruster_0:
-                  {}
-                robotA/thruster_1:
-                  {}
-                robotA/thruster_2:
-                  {}
-                robotA/thruster_3:
-                  {}
-                robotA/thruster_4:
-                  {}
-            robotB/base_link:
-              robotB/origin:
-                robotB/back_thrusters_support:
-                  {}
-                robotB/bravo/base_link:
-                  {}
-                robotB/camera:
-                  {}
-                robotB/depth_cam_link:
-                  {}
-                robotB/dvl:
-                  robotB/dvl_altitude:
-                    {}
-                robotB/gps:
-                  {}
-                robotB/ins:
-                  {}
-                robotB/pressure:
-                  {}
-                robotB/thruster_0:
-                  {}
-                robotB/thruster_1:
-                  {}
-                robotB/thruster_2:
-                  {}
-                robotB/thruster_3:
-                  {}
-                robotB/thruster_4:
-                  {}
-      Update Interval: 0
-      Value: true
-    - Alpha: 1
-      Class: rviz/Axes
-      Enabled: true
-      Length: 1
-      Name: world
-      Radius: 0.10000000149011612
-      Reference Frame: <Fixed Frame>
-      Show Trail: false
-      Value: true
-    - Class: rviz/Camera
-      Enabled: true
-      Image Rendering: background and overlay
-      Image Topic: /girona1000/depth_cam/image_depth
-      Name: Camera
-      Overlay Alpha: 0.5
-      Queue Size: 2
-      Transport Hint: raw
-      Unreliable: false
-      Value: true
-      Visibility:
-        Grid: false
-        PointCloud2: true
-        RobotModel: true
-        TF: false
-        Value: true
-        world: false
-      Zoom Factor: 1
-    - Alpha: 1
-      Autocompute Intensity Bounds: true
-      Autocompute Value Bounds:
-        Max Value: 10
-        Min Value: -10
-        Value: true
-      Axis: Z
-      Channel Name: intensity
-      Class: rviz/PointCloud2
-      Color: 255; 255; 255
-      Color Transformer: Intensity
-      Decay Time: 0
-      Enabled: true
-      Invert Rainbow: false
-      Max Color: 255; 255; 255
-      Min Color: 0; 0; 0
-      Name: PointCloud2
-      Position Transformer: XYZ
-      Queue Size: 10
-      Selectable: true
-      Size (Pixels): 3
-      Size (m): 0.009999999776482582
-      Style: Flat Squares
-      Topic: /voxel_grid/output
-      Unreliable: false
-      Use Fixed Frame: true
-      Use rainbow: true
-      Value: true
     - Alpha: 1
       Class: rviz/RobotModel
       Collision Enabled: false
@@ -515,6 +283,11 @@ Visualization Manager:
           Alpha: 1
           Show Axes: false
           Show Trail: false
+        robotB/collision:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
         robotB/depth_cam_link:
           Alpha: 1
           Show Axes: false
@@ -569,12 +342,306 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
-      Name: RobotModel
+        robotB/vlc_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+      Name: robotB
       Robot Description: robotB/robot_description
       TF Prefix: ""
       Update Interval: 0
       Value: true
       Visual Enabled: true
+    - Class: rviz/TF
+      Enabled: true
+      Filter (blacklist): ""
+      Filter (whitelist): ""
+      Frame Timeout: 15
+      Frames:
+        All Enabled: false
+        robotA/back_thrusters_support:
+          Value: true
+        robotA/base_link:
+          Value: true
+        robotA/bravo/base_link:
+          Value: true
+        robotA/bravo/finger_large_link:
+          Value: true
+        robotA/bravo/finger_small_link:
+          Value: true
+        robotA/bravo/gripper_camera:
+          Value: true
+        robotA/bravo/jaws_base_link:
+          Value: true
+        robotA/bravo/link1:
+          Value: true
+        robotA/bravo/link2:
+          Value: true
+        robotA/bravo/link3:
+          Value: true
+        robotA/bravo/link4:
+          Value: true
+        robotA/bravo/link5:
+          Value: true
+        robotA/bravo/link6:
+          Value: true
+        robotA/camera:
+          Value: true
+        robotA/collision:
+          Value: true
+        robotA/depth_cam_link:
+          Value: true
+        robotA/dvl:
+          Value: true
+        robotA/dvl_altitude:
+          Value: true
+        robotA/gps:
+          Value: true
+        robotA/ins:
+          Value: true
+        robotA/origin:
+          Value: true
+        robotA/pressure:
+          Value: true
+        robotA/thruster_0:
+          Value: true
+        robotA/thruster_1:
+          Value: true
+        robotA/thruster_2:
+          Value: true
+        robotA/thruster_3:
+          Value: true
+        robotA/thruster_4:
+          Value: true
+        robotA/vlc_link:
+          Value: true
+        robotB/back_thrusters_support:
+          Value: true
+        robotB/base_link:
+          Value: true
+        robotB/bravo/base_link:
+          Value: true
+        robotB/bravo/finger_large_link:
+          Value: true
+        robotB/bravo/finger_small_link:
+          Value: true
+        robotB/bravo/gripper_camera:
+          Value: true
+        robotB/bravo/jaws_base_link:
+          Value: true
+        robotB/bravo/link1:
+          Value: true
+        robotB/bravo/link2:
+          Value: true
+        robotB/bravo/link3:
+          Value: true
+        robotB/bravo/link4:
+          Value: true
+        robotB/bravo/link5:
+          Value: true
+        robotB/bravo/link6:
+          Value: true
+        robotB/camera:
+          Value: true
+        robotB/collision:
+          Value: true
+        robotB/depth_cam_link:
+          Value: true
+        robotB/dvl:
+          Value: true
+        robotB/dvl_altitude:
+          Value: true
+        robotB/gps:
+          Value: true
+        robotB/ins:
+          Value: true
+        robotB/origin:
+          Value: true
+        robotB/pressure:
+          Value: true
+        robotB/thruster_0:
+          Value: true
+        robotB/thruster_1:
+          Value: true
+        robotB/thruster_2:
+          Value: true
+        robotB/thruster_3:
+          Value: true
+        robotB/thruster_4:
+          Value: true
+        robotB/vlc_link:
+          Value: true
+        world:
+          Value: false
+        world_ned:
+          Value: false
+      Marker Alpha: 1
+      Marker Scale: 1
+      Name: TF
+      Show Arrows: true
+      Show Axes: true
+      Show Names: true
+      Tree:
+        world:
+          world_ned:
+            robotA/base_link:
+              robotA/origin:
+                robotA/back_thrusters_support:
+                  {}
+                robotA/bravo/base_link:
+                  robotA/bravo/link1:
+                    robotA/bravo/link2:
+                      robotA/bravo/link3:
+                        robotA/bravo/link4:
+                          robotA/bravo/link5:
+                            robotA/bravo/link6:
+                              robotA/bravo/jaws_base_link:
+                                robotA/bravo/finger_large_link:
+                                  {}
+                                robotA/bravo/finger_small_link:
+                                  {}
+                                robotA/bravo/gripper_camera:
+                                  {}
+                robotA/camera:
+                  {}
+                robotA/collision:
+                  {}
+                robotA/depth_cam_link:
+                  {}
+                robotA/dvl:
+                  robotA/dvl_altitude:
+                    {}
+                robotA/gps:
+                  {}
+                robotA/ins:
+                  {}
+                robotA/pressure:
+                  {}
+                robotA/thruster_0:
+                  {}
+                robotA/thruster_1:
+                  {}
+                robotA/thruster_2:
+                  {}
+                robotA/thruster_3:
+                  {}
+                robotA/thruster_4:
+                  {}
+                robotA/vlc_link:
+                  {}
+            robotB/base_link:
+              robotB/origin:
+                robotB/back_thrusters_support:
+                  {}
+                robotB/bravo/base_link:
+                  robotB/bravo/link1:
+                    robotB/bravo/link2:
+                      robotB/bravo/link3:
+                        robotB/bravo/link4:
+                          robotB/bravo/link5:
+                            robotB/bravo/link6:
+                              robotB/bravo/jaws_base_link:
+                                robotB/bravo/finger_large_link:
+                                  {}
+                                robotB/bravo/finger_small_link:
+                                  {}
+                                robotB/bravo/gripper_camera:
+                                  {}
+                robotB/camera:
+                  {}
+                robotB/collision:
+                  {}
+                robotB/depth_cam_link:
+                  {}
+                robotB/dvl:
+                  robotB/dvl_altitude:
+                    {}
+                robotB/gps:
+                  {}
+                robotB/ins:
+                  {}
+                robotB/pressure:
+                  {}
+                robotB/thruster_0:
+                  {}
+                robotB/thruster_1:
+                  {}
+                robotB/thruster_2:
+                  {}
+                robotB/thruster_3:
+                  {}
+                robotB/thruster_4:
+                  {}
+                robotB/vlc_link:
+                  {}
+      Update Interval: 0
+      Value: true
+    - Alpha: 1
+      Class: rviz/Axes
+      Enabled: true
+      Length: 1
+      Name: world
+      Radius: 0.10000000149011612
+      Reference Frame: <Fixed Frame>
+      Show Trail: false
+      Value: true
+    - Class: rviz/Camera
+      Enabled: false
+      Image Rendering: background and overlay
+      Image Topic: /girona1000/depth_cam/image_depth
+      Name: Camera
+      Overlay Alpha: 0.5
+      Queue Size: 2
+      Transport Hint: raw
+      Unreliable: false
+      Value: false
+      Visibility:
+        "": true
+        Grid: false
+        PointCloud2: true
+        RobotModel: true
+        TF: false
+        Value: true
+        world: false
+      Zoom Factor: 1
+    - Alpha: 1
+      Autocompute Intensity Bounds: true
+      Autocompute Value Bounds:
+        Max Value: 10
+        Min Value: -10
+        Value: true
+      Axis: Z
+      Channel Name: intensity
+      Class: rviz/PointCloud2
+      Color: 255; 255; 255
+      Color Transformer: Intensity
+      Decay Time: 0
+      Enabled: true
+      Invert Rainbow: false
+      Max Color: 255; 255; 255
+      Min Color: 0; 0; 0
+      Name: PointCloud2
+      Position Transformer: XYZ
+      Queue Size: 10
+      Selectable: true
+      Size (Pixels): 3
+      Size (m): 0.009999999776482582
+      Style: Flat Squares
+      Topic: /voxel_grid/output
+      Unreliable: false
+      Use Fixed Frame: true
+      Use rainbow: true
+      Value: true
+    - Class: rviz/MarkerArray
+      Enabled: true
+      Marker Topic: /iauv_scene
+      Name: pathViz
+      Namespaces:
+        "": true
+        Arrow: true
+        Path: true
+      Queue Size: 100
+      Value: true
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
@@ -603,7 +670,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 13.393560409545898
+      Distance: 19.318452835083008
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -611,17 +678,17 @@ Visualization Manager:
         Value: false
       Field of View: 0.7853981852531433
       Focal Point:
-        X: -2.621194362640381
-        Y: 0.07070443034172058
-        Z: -3.5484442710876465
+        X: -4.188281536102295
+        Y: 0.9079700708389282
+        Z: -6.8081817626953125
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.634796679019928
+      Pitch: 0.4297967255115509
       Target Frame: <Fixed Frame>
-      Yaw: 0.26171520352363586
+      Yaw: 4.079891681671143
     Saved: ~
 Window Geometry:
   Camera:
@@ -631,7 +698,7 @@ Window Geometry:
   Height: 1016
   Hide Left Dock: false
   Hide Right Dock: false
-  QMainWindow State: 000000ff00000000fd0000000400000000000001760000035afc0200000009fb0000001200530065006c0065006300740069006f006e00000001e10000009b0000005c00fffffffb0000001e0054006f006f006c002000500072006f007000650072007400690065007302000001ed000001df00000185000000a3fb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afb000000100044006900730070006c006100790073010000003d00000208000000c900fffffffb0000002000730065006c0065006300740069006f006e00200062007500660066006500720200000138000000aa0000023a00000294fb00000014005700690064006500530074006500720065006f02000000e6000000d2000003ee0000030bfb0000000c004b0069006e0065006300740200000186000001060000030c00000261fb0000000c00430061006d006500720061010000024b0000014c0000001600ffffff000000010000010f0000035afc0200000003fb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000041000000780000000000000000fb0000000a00560069006500770073000000003d0000035a000000a400fffffffb0000001200530065006c0065006300740069006f006e010000025a000000b200000000000000000000000200000490000000a9fc0100000001fb0000000a00560069006500770073030000004e00000080000002e10000019700000003000007380000003efc0100000002fb0000000800540069006d0065010000000000000738000003bc00fffffffb0000000800540069006d00650100000000000004500000000000000000000005bc0000035a00000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  QMainWindow State: 000000ff00000000fd0000000400000000000001760000035afc0200000009fb0000001200530065006c0065006300740069006f006e00000001e10000009b0000005c00fffffffb0000001e0054006f006f006c002000500072006f007000650072007400690065007302000001ed000001df00000185000000a3fb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afb000000100044006900730070006c006100790073010000003d0000035a000000c900fffffffb0000002000730065006c0065006300740069006f006e00200062007500660066006500720200000138000000aa0000023a00000294fb00000014005700690064006500530074006500720065006f02000000e6000000d2000003ee0000030bfb0000000c004b0069006e0065006300740200000186000001060000030c00000261fb0000000c00430061006d006500720061000000024b0000014c0000001600ffffff000000010000010f0000035afc0200000003fb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000041000000780000000000000000fb0000000a00560069006500770073000000003d0000035a000000a400fffffffb0000001200530065006c0065006300740069006f006e010000025a000000b200000000000000000000000200000490000000a9fc0100000001fb0000000a00560069006500770073030000004e00000080000002e10000019700000003000007440000003efc0100000002fb0000000800540069006d0065010000000000000744000003bc00fffffffb0000000800540069006d00650100000000000004500000000000000000000005c80000035a00000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
   Selection:
     collapsed: false
   Time:
@@ -640,6 +707,6 @@ Window Geometry:
     collapsed: false
   Views:
     collapsed: false
-  Width: 1848
-  X: 72
+  Width: 1860
+  X: 60
   Y: 27

@@ -6,7 +6,7 @@ from nav_msgs.msg import Path
 
 def follow_path_client():
     # Creates the SimpleActionClient, passing the type of the action
-    client = actionlib.SimpleActionClient("pursuit_controller", PursuitAction)
+    client = actionlib.SimpleActionClient("robotA/pursuit_controller", PursuitAction)
 
     # Waits until the action server has started up and started
     # listening for goals.
@@ -17,7 +17,7 @@ def follow_path_client():
     # Creates a goal to send to the action server.
     goal = PursuitGoal()
 
-    goal.path = rospy.wait_for_message("/iauv_motion_planner/path", Path)
+    goal.path = rospy.wait_for_message("robotA/motion_planner/path", Path)
     goal.radius = 0.3
 
     # Sends the goal to the action server.
@@ -34,7 +34,7 @@ if __name__ == "__main__":
     try:
         # Initializes a rospy node so that the SimpleActionClient can
         # publish and subscribe over ROS.
-        rospy.init_node("ation_path_test")
+        rospy.init_node("ation_path_test", anonymous=True)
         result = follow_path_client()
     except rospy.ROSInterruptException:
         print("program interrupted before completion")
