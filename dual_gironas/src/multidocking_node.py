@@ -10,17 +10,14 @@ def main():
     # 
     DS_ALPHA = DSController(ds_name="ds_alpha")
     DS_BETA = DSController(ds_name="ds_beta")
-    # DS_GAMMA = DSController(ds_name="ds_charlie")
     
 
     # Replicate this with the robot name and the needed DS_NAME to create the dock undock action
-    # For multidocking multidocking_sim.launch
     # server = DockingServer( auv_name="girona500",ds_name="ds_beta")   
     
-    # For Multirobot_description tri_robot.launch
-    # server = DockingServer( auv_name="robotA",ds_name="ds_charlie")   
-    server = DockingServer( auv_name="robotB",ds_name="ds_alpha")   
-    server = DockingServer( auv_name="robotA",ds_name="ds_beta")   
+    # For  dual_robot.launch
+    server = DockingServer( auv_name="robotA",ds_name="ds_alpha")   
+    server = DockingServer( auv_name="robotB",ds_name="ds_beta")   
  
 
 
