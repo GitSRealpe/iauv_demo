@@ -20,14 +20,14 @@
         args="0 0 0 0 0 3.1415 world world_ned"/>
 
     <node name="dsA2world" pkg="tf2_ros" type="static_transform_publisher"
-        args="$(arg ds_north) 5.0 5.3 0 0 1.57 world_ned ds_stationA"/>
+        args="4.0 15.0 6.8 0 0 0 world_ned ds_stationA"/>
     <node name="vlcA2world" pkg="tf2_ros" type="static_transform_publisher"
-        args="-10.0 5.0 5.3 0 0 1.57 world_ned vlc_stationA"/>
+        args="3.125 14.42 6.54 0 1.571 0.7535 world_ned vlc_stationA"/>
 
     <node name="dsB2world" pkg="tf2_ros" type="static_transform_publisher"
-        args="-10.0 5.0 5.3 0 0 1.57 world_ned ds_stationB"/>
+        args="-4.0 15.0 6.8 0 0 0 world_ned ds_stationB"/>
     <node name="vlc2Bworld" pkg="tf2_ros" type="static_transform_publisher"
-        args="-10.0 5.0 5.3 0 0 1.57 world_ned vlc_stationB"/>
+        args="-4.875 14.42 6.54 0 1.571 0.7535 world_ned vlc_stationB"/>
 
     <!-- robotA //////////-->
     <include file="$(find dual_gironas)/launch/singlebot.launch">
