@@ -54,20 +54,20 @@
 		<!-- vlc definition -->
 		<link name="LinkVlc" type="cylinder" physics="submerged">
 			<dimensions radius="0.03" height="0.126"/>
-			<origin xyz="-0.875 -0.58 -1.46" rpy="0.0 1.571 0.7535"/>
+			<origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
 			<material name="Steel"/>
 			<look name="Neutral"/>
 		</link>
 		<joint name="Joint1" type="fixed">
 			<parent name="Base"/>
 			<child name="LinkVlc"/>
-			<origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+			<origin xyz="-0.875 -0.58 -1.46" rpy="0.0 1.571 0.7535"/>
 			<axis xyz="0.0 1.0 0.0"/>
 		</joint>
 					<light name="Spot">
 						<specs radius="0.02" cone_angle="20.0" illuminance="500000.0"/>
 						<color rgb="0.1 0.1 1.0"/>
-						<origin xyz="-0.875 -0.58 -1.46" rpy="1.57 1.571 -0.7535"/>
+						<origin xyz="0.0 0.0 -0.05" rpy="0.0 0.0 0.0"/>
 						<link name="LinkVlc"/>
 					</light>
 
