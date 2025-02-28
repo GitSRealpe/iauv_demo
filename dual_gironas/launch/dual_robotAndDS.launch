@@ -1,7 +1,7 @@
 <launch>
     <!-- Configurable arguments -->
     <arg name="enable_rviz" default="true"/>
-    
+
 
     <!-- Simulation parameters -->
     <arg name="simulation_data" value="$(find iauv_description)/resources"/>
@@ -11,15 +11,25 @@
     <arg name="graphics_resolution" value="1440 900"/>
     <arg name="graphics_quality" value="low"/>
     <arg name="ds_north" default="0.0"/>
-    <arg name="ds_east"  default="15.0"/>
-    <arg name="ds_down"  default="8.0"/>
-    <arg name="ds_distance_step"  default="4.0"/>
+    <arg name="ds_east" default="15.0"/>
+    <arg name="ds_down" default="8.0"/>
+    <arg name="ds_distance_step" default="4.0"/>
 
     <!-- Static transform -->
     <node name="world2ned" pkg="tf2_ros" type="static_transform_publisher"
         args="0 0 0 0 0 3.1415 world world_ned"/>
 
-<!-- robotA //////////-->
+    <node name="dsA2world" pkg="tf2_ros" type="static_transform_publisher"
+        args="$(arg ds_north) 5.0 5.3 0 0 1.57 world_ned ds_stationA"/>
+    <node name="vlcA2world" pkg="tf2_ros" type="static_transform_publisher"
+        args="-10.0 5.0 5.3 0 0 1.57 world_ned vlc_stationA"/>
+
+    <node name="dsB2world" pkg="tf2_ros" type="static_transform_publisher"
+        args="-10.0 5.0 5.3 0 0 1.57 world_ned ds_stationB"/>
+    <node name="vlc2Bworld" pkg="tf2_ros" type="static_transform_publisher"
+        args="-10.0 5.0 5.3 0 0 1.57 world_ned vlc_stationB"/>
+
+    <!-- robotA //////////-->
     <include file="$(find dual_gironas)/launch/singlebot.launch">
         <arg name="robot_name" value="robotA"/>
     </include>
@@ -57,10 +67,10 @@
         <remap from="robotA/bravo/joint_states" to="robotA/joint_states"/>
         <remap from="robotB/bravo/joint_states" to="robotB/joint_states"/>
         <!-- <remap from="robot_description" to="robotA/robot_description"/> -->
-        <param name="ds_north" value="$(arg ds_north)" />
-        <param name="ds_east" value="$(arg ds_east)" />
-        <param name="ds_down" value="$(arg ds_down)" />
-        <param name="ds_distance_step"  value="$(arg ds_distance_step)"/>
+        <param name="ds_north" value="$(arg ds_north)"/>
+        <param name="ds_east" value="$(arg ds_east)"/>
+        <param name="ds_down" value="$(arg ds_down)"/>
+        <param name="ds_distance_step" value="$(arg ds_distance_step)"/>
     </node>
 
 
