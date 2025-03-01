@@ -42,7 +42,7 @@
             file="$(find iauv_description)/config/ros_control/robotA_ros_control.yaml"/>
         <!-- Load the controllers -->
         <node name="controller_spawner" pkg="controller_manager" type="spawner" output="screen"
-            args="joint_state_controller finger_small_position_controller finger_large_position_controller"/>
+            args="joint_state_controller finger_small_position_controller finger_large_position_controller joint_trajectory_controller"/>
     </group>
 
     <!-- robotB //////////-->
@@ -57,13 +57,12 @@
                   $(arg simulation_rate) $(arg graphics_resolution) 
                   $(arg graphics_quality)">
         <remap from="robotA/bravo/joint_states" to="robotA/joint_states"/>
-        <!-- <remap from="robotB/bravo/joint_states" to="robotB/joint_states"/> -->
+        <remap from="robot_description" to="robotA/robot_description"/>
         <param name="ds_north" value="$(arg ds_north)"/>
         <param name="ds_east" value="$(arg ds_east)"/>
         <param name="ds_down" value="$(arg ds_down)"/>
         <param name="ds_distance_step" value="$(arg ds_distance_step)"/>
     </node>
-
 
     <!-- RViz -->
     <node if="$(arg enable_rviz)" pkg="rviz" type="rviz" name="rviz"

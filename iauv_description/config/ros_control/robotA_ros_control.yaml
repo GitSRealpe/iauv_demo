@@ -30,3 +30,30 @@ joint_velocity_controller:
     - robotA/bravo/joint4
     - robotA/bravo/joint5
     - robotA/bravo/joint6
+
+joint_trajectory_controller:
+  type: velocity_controllers/JointTrajectoryController
+  joints:
+    - robotA/bravo/joint1
+    - robotA/bravo/joint2
+    - robotA/bravo/joint3
+    - robotA/bravo/joint4
+    - robotA/bravo/joint5
+    - robotA/bravo/joint6
+  gains:
+    robotA/bravo/joint1: { p: 5.0, i: 0.0, d: 0.0, i_clamp_min: -1, i_clamp_max: 1 }
+    robotA/bravo/joint2: { p: 5.0, i: 0.0, d: 0.0, i_clamp_min: -1, i_clamp_max: 1 }
+    robotA/bravo/joint3: { p: 5.0, i: 0.0, d: 0.0, i_clamp_min: -1, i_clamp_max: 1 }
+    robotA/bravo/joint4: { p: 5.0, i: 0.0, d: 0.0, i_clamp_min: -1, i_clamp_max: 1 }
+    robotA/bravo/joint5: { p: 5.0, i: 0.0, d: 0.2, i_clamp_min: -1, i_clamp_max: 1 }
+    robotA/bravo/joint6: { p: 5.0, i: 0.0, d: 0.2, i_clamp_min: -1, i_clamp_max: 1 }
+
+  constraints:
+    goal_time: 0.5                   
+    stopped_velocity_tolerance: 0.001 
+    robotA/bravo/joint1: { trajectory: 0.05, goal: 0.05 }
+    robotA/bravo/joint2: { trajectory: 0.05, goal: 0.05 }
+    robotA/bravo/joint3: { trajectory: 0.05, goal: 0.05 }
+    robotA/bravo/joint4: { trajectory: 0.05, goal: 0.05 }      
+    robotA/bravo/joint5: { trajectory: 0.05, goal: 0.05 }
+    robotA/bravo/joint6: { trajectory: 0.05, goal: 0.05 }

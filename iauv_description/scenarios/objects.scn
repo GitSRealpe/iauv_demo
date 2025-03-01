@@ -11,7 +11,7 @@
         <dimensions xyz="0.5 0.5 0.5"/>
         <material name="Steel"/>
         <look name="Gray"/>
-        <world_transform xyz="3.0 5.0 7.0" rpy="0.0 0.0 0.75"/>
+        <world_transform xyz="0 15.0 7.75" rpy="0.0 0.0 0.75"/>
     </static>
 
     <static name="LilBox" type="box">
