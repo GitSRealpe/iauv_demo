@@ -12,11 +12,11 @@ namespace iauv_motion_planner
 
     Scene::Scene(ros::NodeHandle &nh) : nh_(nh)
     {
-        std::cout<<"scene print"<<"\n";
+        std::cout << "scene print" << "\n";
         std::cout << nh.getNamespace() << "\n\n";
         std::string scene_topic;
         nh.getParam("iauv_scene_topic", scene_topic);
-        std::cout<<"using: "<<scene_topic<<"\n";
+        std::cout << "using: " << scene_topic << "\n";
 
         visual_tools_ = std::make_shared<rviz_visual_tools::RvizVisualTools>("world_ned", scene_topic);
 
@@ -24,7 +24,7 @@ namespace iauv_motion_planner
 
         marker_.type = visualization_msgs::Marker::MESH_RESOURCE;
         marker_.header.frame_id = "world_ned";
-        marker_.mesh_resource = "package://iauv_commander/resources/g1000.dae";
+        marker_.mesh_resource = "package://iauv_description/resources/g1000.dae";
         marker_.scale.x = marker_.scale.y = marker_.scale.z = 1;
         marker_.color.r = marker_.color.g = marker_.color.b = 1;
         marker_.color.a = 0.5;
