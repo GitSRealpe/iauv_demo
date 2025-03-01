@@ -1,0 +1,71 @@
+<launch>
+    <!-- Configurable arguments -->
+    <arg name="enable_rviz" default="true"/>
+
+
+    <!-- Simulation parameters -->
+    <arg name="simulation_data" value="$(find iauv_description)/resources"/>
+    <arg name="scenario_description"
+        value="$(find dual_gironas)/scenarios/multiple_robots_scenario.scn"/>
+    <arg name="simulation_rate" value="100.0"/>
+    <arg name="graphics_resolution" value="1440 900"/>
+    <arg name="graphics_quality" value="low"/>
+    <arg name="ds_north" default="0.0"/>
+    <arg name="ds_east" default="15.0"/>
+    <arg name="ds_down" default="8.0"/>
+    <arg name="ds_distance_step" default="4.0"/>
+
+    <!-- Static transform -->
+    <node name="world2ned" pkg="tf2_ros" type="static_transform_publisher"
+        args="0 0 0 0 0 3.1415 world world_ned"/>
+
+    <node name="dsA2world" pkg="tf2_ros" type="static_transform_publisher"
+        args="4.0 15.0 6.8 0 0 0 world_ned ds_stationA"/>
+    <node name="vlcA2world" pkg="tf2_ros" type="static_transform_publisher"
+        args="3.125 14.42 6.54 0 1.571 0.7535 world_ned vlc_stationA"/>
+
+    <node name="dsB2world" pkg="tf2_ros" type="static_transform_publisher"
+        args="-4.0 15.0 6.8 0 0 0 world_ned ds_stationB"/>
+    <node name="vlc2Bworld" pkg="tf2_ros" type="static_transform_publisher"
+        args="-4.875 14.42 6.54 0 1.571 0.7535 world_ned vlc_stationB"/>
+
+    <!-- robotA //////////-->
+    <include file="$(find iauv_description)/launch/singlebot.launch">
+        <arg name="robot_name" value="robotA"/>
+        <arg name="enable_arm" value="true"/>
+    </include>
+
+    <!-- ROS Control -->
+    <group ns="robotA/bravo">
+        <!-- Load ros-control parameters -->
+        <rosparam command="load"
+            file="$(find iauv_description)/config/ros_control/robotA_ros_control.yaml"/>
+        <!-- Load the controllers -->
+        <node name="controller_spawner" pkg="controller_manager" type="spawner" output="screen"
+            args="joint_state_controller finger_small_position_controller finger_large_position_controller"/>
+    </group>
+
+    <!-- robotB //////////-->
+    <include file="$(find iauv_description)/launch/singlebot.launch">
+        <arg name="robot_name" value="robotB"/>
+        <arg name="enable_arm" value="false"/>
+    </include>
+
+    <!-- Run Simulator -->
+    <node name="stonefish_simulator" pkg="stonefish_ros" type="parsed_simulator"
+        args="$(arg simulation_data) $(arg scenario_description)
+                  $(arg simulation_rate) $(arg graphics_resolution) 
+                  $(arg graphics_quality)">
+        <remap from="robotA/bravo/joint_states" to="robotA/joint_states"/>
+        <!-- <remap from="robotB/bravo/joint_states" to="robotB/joint_states"/> -->
+        <param name="ds_north" value="$(arg ds_north)"/>
+        <param name="ds_east" value="$(arg ds_east)"/>
+        <param name="ds_down" value="$(arg ds_down)"/>
+        <param name="ds_distance_step" value="$(arg ds_distance_step)"/>
+    </node>
+
+
+    <!-- RViz -->
+    <node if="$(arg enable_rviz)" pkg="rviz" type="rviz" name="rviz"
+        args="-d $(find iauv_description)/config/dual.rviz"/>
+</launch>
