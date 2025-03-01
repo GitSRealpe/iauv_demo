@@ -16,36 +16,32 @@
     <origin rpy="${pi/2} 0.0 ${pi/2}" xyz="0.7322 -0.1382 0.385"/>
   </joint>
 
-  <!-- Include manipulators -->
-  <xacro:include
-    filename="$(find blueprintlab_reachbravo7_manipulator_description)/urdf/bravo7_macro.urdf.xacro"/>
-  <!-- Include end-effectors -->
-  <xacro:include
-    filename="$(find blueprintlab_reachbravo7_manipulator_description)/urdf/end_effectors/jaws_macro.urdf.xacro"/>
-  <!-- Add manipulators-->
-  <xacro:reach_bravo7 prefix="$(arg bravo_namespace)" link6_lowlimit="0.0" link6_uplimit="3.14"/>
+  <xacro:if value="$(arg enable_arm)">
+    <!-- Include manipulators -->
+    <xacro:include
+      filename="$(find blueprintlab_reachbravo7_manipulator_description)/urdf/bravo7_macro.urdf.xacro"/>
+    <!-- Include end-effectors -->
+    <xacro:include
+      filename="$(find blueprintlab_reachbravo7_manipulator_description)/urdf/end_effectors/jaws_macro.urdf.xacro"/>
+    <!-- Add manipulators-->
+    <xacro:reach_bravo7 prefix="$(arg bravo_namespace)" link6_lowlimit="0.0" link6_uplimit="3.14"/>
 
-  <!-- Attach manipulator to base -->
-  <joint name="girona1000_to_bravo" type="fixed">
-    <parent link="$(arg robot_namespace)/origin"/>
-    <child link="$(arg bravo_namespace)/base_link"/>
-    <origin rpy="${pi} 0.0 0.175" xyz="0.7322 0.1382 0.485"/>
-  </joint>
+    <!-- Attach manipulator to base -->
+    <joint name="girona1000_to_bravo" type="fixed">
+      <parent link="$(arg robot_namespace)/origin"/>
+      <child link="$(arg bravo_namespace)/base_link"/>
+      <origin rpy="${pi} 0.0 0.175" xyz="0.7322 0.1382 0.485"/>
+    </joint>
 
-  <xacro:reach_bravo7_jaws prefix="$(arg bravo_namespace)"/>
+    <xacro:reach_bravo7_jaws prefix="$(arg bravo_namespace)"/>
+  </xacro:if>
+
 
   <link name="$(arg robot_namespace)/depth_cam_link"/>
   <joint name="$(arg robot_namespace)/depth_cam_joint" type="fixed">
     <parent link="$(arg robot_namespace)/origin"/>
     <child link="$(arg robot_namespace)/depth_cam_link"/>
     <origin rpy="1.309 0 1.57" xyz="0.7322 -0.1382 0.485"/>
-  </joint>
-
-  <link name="$(arg bravo_namespace)/gripper_camera"/>
-  <joint name="camera_joint" type="fixed">
-    <parent link="$(arg bravo_namespace)/jaws_base_link"/>
-    <child link="$(arg bravo_namespace)/gripper_camera"/>
-    <origin rpy="0 0 0" xyz="0 0 0.05"/>
   </joint>
 
   <link name="$(arg robot_namespace)/vlc_link"/>

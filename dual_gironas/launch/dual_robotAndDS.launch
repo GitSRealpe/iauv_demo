@@ -30,8 +30,9 @@
         args="-4.875 14.42 6.54 0 1.571 0.7535 world_ned vlc_stationB"/>
 
     <!-- robotA //////////-->
-    <include file="$(find dual_gironas)/launch/singlebot.launch">
+    <include file="$(find iauv_description)/launch/singlebot.launch">
         <arg name="robot_name" value="robotA"/>
+        <arg name="enable_arm" value="true"/>
     </include>
 
     <!-- ROS Control -->
@@ -45,8 +46,9 @@
     </group>
 
     <!-- robotB //////////-->
-    <include file="$(find dual_gironas)/launch/singlebot.launch">
+    <include file="$(find iauv_description)/launch/singlebot.launch">
         <arg name="robot_name" value="robotB"/>
+        <arg name="enable_arm" value="true"/>
     </include>
 
     <!-- ROS Control -->
