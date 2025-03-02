@@ -58,7 +58,7 @@
 		<arg name="start_position" value="3.0 3.0 0.5"/>
 	</include>
 
-	<include file="$(find iauv_description)/scenarios/robot/girona1000_bravo.scn">
+	<include file="$(find iauv_description)/scenarios/robot/girona1000.scn">
 		<arg name="robot_name" value="robotB"/>
 		<arg name="start_yaw" value="1.57"/>
 		<arg name="start_position" value="-3.0 -3.0 0.5"/>
@@ -66,23 +66,23 @@
 
 	<!-- docking Stations -->
 	<include file="$(find dual_gironas)/scenarios/docking_structure.scn">
-		<arg name="ds_name" value="ds_alpha" />
-		<arg name="offset_x" value="${$(param ds_north)+$(param ds_distance_step)}" />
-		<arg name="offset_y" value="$(param ds_east)" />
-		<arg name="offset_z" value="${$(param ds_down)}" />
-		<arg name="offset_row" value="0.0" />
-		<arg name="offset_pitch" value="0.0" />
-		<arg name="offset_yaw" value="0.0" />
+		<arg name="ds_name" value="ds_alpha"/>
+		<arg name="offset_x" value="${$(param ds_north)+$(param ds_distance_step)}"/>
+		<arg name="offset_y" value="$(param ds_east)"/>
+		<arg name="offset_z" value="${$(param ds_down)}"/>
+		<arg name="offset_row" value="0.0"/>
+		<arg name="offset_pitch" value="0.0"/>
+		<arg name="offset_yaw" value="0.0"/>
 	</include>
 
 	<include file="$(find dual_gironas)/scenarios/docking_structure.scn">
-		<arg name="ds_name" value="ds_beta" />
-		<arg name="offset_x" value="${$(param ds_north)-$(param ds_distance_step)}" />
-		<arg name="offset_y" value="$(param ds_east)" />
-		<arg name="offset_z" value="$(param ds_down)" />
-		<arg name="offset_row" value="0.0" />
-		<arg name="offset_pitch" value="0.0" />
-		<arg name="offset_yaw" value="0.0" />
+		<arg name="ds_name" value="ds_beta"/>
+		<arg name="offset_x" value="${$(param ds_north)-$(param ds_distance_step)}"/>
+		<arg name="offset_y" value="$(param ds_east)"/>
+		<arg name="offset_z" value="$(param ds_down)"/>
+		<arg name="offset_row" value="0.0"/>
+		<arg name="offset_pitch" value="0.0"/>
+		<arg name="offset_yaw" value="0.0"/>
 	</include>
 
 

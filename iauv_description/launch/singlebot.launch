@@ -1,6 +1,7 @@
 <launch>
 
     <arg name="robot_name" default="bot0"/>
+    <arg name="enable_arm" default="false"/>
 
     <arg name="enable_keyboard" default="false"/>
     <arg name="enable_joystick" default="true"/>
@@ -34,7 +35,7 @@
         <!-- Load robot description -->
         <param name="robot_description"
             command="$(find xacro)/xacro '$(find iauv_description)/urdf/g1000_bravo.urdf.xacro' 
-                        robot_namespace:=$(arg robot_name)"/>
+                        robot_namespace:=$(arg robot_name) enable_arm:=$(arg enable_arm)"/>
         <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"
             output="screen"/>
 
