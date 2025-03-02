@@ -107,6 +107,7 @@
         <ros_subscriber servos="/$(arg ds_name)/my_joint_setpoints"/>
 		<world_transform rpy="$(arg offset_row) $(arg offset_pitch) $(arg offset_yaw)" xyz="$(arg offset_x) $(arg offset_y) $(arg offset_z)"/>
 	</robot>
+	
 	<!-- x_funnel holder -->
 	<static name="x_funnel_holder" type="model">
 		<physical>

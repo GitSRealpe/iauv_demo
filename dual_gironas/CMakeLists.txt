@@ -16,7 +16,6 @@ generate_messages(DEPENDENCIES actionlib_msgs)
 find_package(OpenCV REQUIRED)
 find_package(Eigen3 REQUIRED)
 
-
 catkin_package(
   INCLUDE_DIRS
   CATKIN_DEPENDS roscpp rospy cola2_nav stonefish_ros

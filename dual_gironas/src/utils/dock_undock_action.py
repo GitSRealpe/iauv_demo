@@ -29,6 +29,8 @@ class DockingServer(StateMachine):
     
     rehome = (entering_ds.to(homing)| in_ds.to(homing))
 
+    failure = in_ds.to(initial_pose)
+
     undock = (in_ds.to(leave_ds)| 
               leave_ds.to(initial_pose))
 
@@ -172,9 +174,11 @@ class DockingServer(StateMachine):
         
         rospy.loginfo(f"{self.auv_name} is entering {self.ds_name}")
         self.feedbackpub()
-        self.set_WWP(z_axis=-0.1)
+        self.set_WWP(z_axis=0.3)
         self.move_auv_WWP(0.10)
+        self.heave(5,100)
         self.ds_close_locks()
+        self.set_WWP(z_axis=0.0)
         self.heave(5,100)
         # code for entering
         self.send("docking_menouver")
@@ -197,6 +201,7 @@ class DockingServer(StateMachine):
         elif self.dock_attempt==2:
             self.dock_attempt = 0
             rospy.loginfo(f"{self.auv_name} docking failed {self.ds_name}")
+            self.send("failure")
         else:      
             rospy.loginfo(f"{self.auv_name} docking attempt failed {self.ds_name}")
             self.dock_attempt += 1
@@ -221,7 +226,6 @@ class DockingServer(StateMachine):
         rospy.loginfo(f"{self.auv_name} exited successfully")
         self.success = True
 
-    
     def move_auv_WWP(self,error):
         self.position_error()
         self.world_waypoint_publisher()
@@ -286,7 +290,7 @@ class DockingServer(StateMachine):
         self.new_coordinates[0] = self.ds_north
         self.new_coordinates[1] = self.ds_east
         self.new_coordinates[2] = self.ds_down - z_axis
-        self.new_coordinates[3] = 0.0 
+        self.new_coordinates[3] = 0.0 # this value changes based on the docking orientation in Radian
 
         self.ned_target_pose = self.quat_to_tf(np.array([self.new_coordinates[0],
                                                          self.new_coordinates[1],
@@ -332,8 +336,8 @@ class DockingServer(StateMachine):
         # publishing quaternion from the ArUco pose estimation 
         ds_pose.pose.pose.orientation.x = 0
         ds_pose.pose.pose.orientation.y = 0
-        ds_pose.pose.pose.orientation.z = 0.7071788
-        ds_pose.pose.pose.orientation.w = 0.7070348
+        ds_pose.pose.pose.orientation.z = 0.0
+        ds_pose.pose.pose.orientation.w = 1
         
         self.waypoint_display.publish(ds_pose)
 
