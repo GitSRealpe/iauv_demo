@@ -819,7 +819,9 @@
 			<ros_publisher topic="/$(arg robot_name)/navigator/pressure"/>
 		</sensor>
 
-		<sensor name="dvl" type="dvl" rate="8.0">
+
+
+		<sensor name="dvl" type="dvl" rate="10.0"  watt="4" voltage="10" duty_cycle="100">
 			<link name="Vehicle"/>
 			<origin rpy="0.0 0.0 3.14159" xyz="-0.655 0.0 0.65"/>
 			<specs beam_angle="25.0" beam_positive_z="true"/>
@@ -1002,8 +1004,11 @@
 			<controller position_gain="1.0" velocity_gain="1.0" max_torque="1000.0" max_velocity="1"/>
 		</actuator>
 
+		
 		<world_transform rpy="0.0 0.0 $(arg start_yaw)" xyz="$(arg start_position)"/>
-
+		
+		<battery maxCapacity="120.83" voltage="24"/>
+		
 		<ros_control_interface namespace="/$(arg robot_name)/bravo" type="velocity">
 			<joint name="bravo/joint1"/>
 			<joint name="bravo/joint2"/>

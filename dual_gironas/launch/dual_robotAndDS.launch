@@ -12,7 +12,7 @@
     <arg name="graphics_quality" value="low"/>
     <arg name="ds_north" default="0.0"/>
     <arg name="ds_east" default="15.0"/>
-    <arg name="ds_down" default="8.0"/>
+    <arg name="ds_down" default="15.0"/>
     <arg name="ds_distance_step" default="4.0"/>
 
     <!-- Static transform -->
@@ -20,14 +20,14 @@
         args="0 0 0 0 0 3.1415 world world_ned"/>
 
     <node name="dsA2world" pkg="tf2_ros" type="static_transform_publisher"
-        args="4.0 15.0 6.8 0 0 0 world_ned ds_stationA"/>
+        args="4.0 15.0 13.8 0 0 0 world_ned ds_stationA"/>
     <node name="vlcA2world" pkg="tf2_ros" type="static_transform_publisher"
-        args="3.125 14.42 6.54 0 1.571 0.7535 world_ned vlc_stationA"/>
+        args="3.125 14.42 13.54 0 1.571 1.571 world_ned vlc_stationA"/>
 
     <node name="dsB2world" pkg="tf2_ros" type="static_transform_publisher"
-        args="-4.0 15.0 6.8 0 0 0 world_ned ds_stationB"/>
+        args="-4.0 15.0 13.8 0 0 0 world_ned ds_stationB"/>
     <node name="vlc2Bworld" pkg="tf2_ros" type="static_transform_publisher"
-        args="-4.875 14.42 6.54 0 1.571 0.7535 world_ned vlc_stationB"/>
+        args="-4.875 14.42 13.54 0 1.571 1.571 world_ned vlc_stationB"/>
 
     <!-- robotA //////////-->
     <include file="$(find iauv_description)/launch/singlebot.launch">
