@@ -39,6 +39,8 @@ class DockingServer(StateMachine):
         Initializes the ROS1 Action Server.
         """
         self.auv_name = auv_name
+        self.max_error = 0.0
+        self.test_ds = True
         self.ds_name = ds_name
         self.ds_position_recieved = False
         self.yaw_axis_disable = True
@@ -83,6 +85,7 @@ class DockingServer(StateMachine):
         self.ds_north = rospy.get_param('/stonefish_simulator/ds_north', float ) 
         self.ds_east = rospy.get_param('/stonefish_simulator/ds_east', float )  # this constant is from the DS design
         self.ds_down = rospy.get_param('/stonefish_simulator/ds_down', float) - 1.28 # this constant is from the DS design
+        self.ds_yaw = 0.0
         self.ds_step = rospy.get_param('/stonefish_simulator/ds_distance_step', float)
         # rospy.loginfo(f"DS {self.ds_name} with {self.ds_north},{self.ds_east},{self.ds_down}")
         if self.ds_name == "ds_alpha":
@@ -97,6 +100,14 @@ class DockingServer(StateMachine):
         rospy.loginfo(f"DS {self.ds_name} position received at this coordinates {self.ds_north},{self.ds_east},{self.ds_down}")
         self.ds_position_recieved = True
 
+    def update_docking_point(self,value,axis = "x"):
+        if axis == "x":
+            self.ds_north += value
+        if axis == "y":
+            self.ds_east += value 
+        if axis == "yaw":
+            self.ds_yaw += 0.0872665
+        self.max_error += value
 
     def execute_cb(self, goal):
         """
@@ -195,17 +206,25 @@ class DockingServer(StateMachine):
         rospy.sleep(10)
         self.position_error()
         self.success= False if self.position_mean_error_z>0.15 else True
-        if self.success:
-            self.dock_attempt = 0 
-            rospy.loginfo(f"{self.auv_name} is in {self.ds_name}, use (undock) action to exit the DS")
-        elif self.dock_attempt==2:
-            self.dock_attempt = 0
-            rospy.loginfo(f"{self.auv_name} docking failed {self.ds_name}")
-            self.send("failure")
-        else:      
-            rospy.loginfo(f"{self.auv_name} docking attempt failed {self.ds_name}")
-            self.dock_attempt += 1
-            self.send("rehome") 
+        if self.test_ds: 
+            if self.success: 
+                self.update_docking_point(0.1,axis="x")
+                self.send("rehome")
+            else:
+                rospy.loginfo(f"{self.auv_name} docking failed at {self.max_error}")
+        else:
+
+            if self.success:
+                self.dock_attempt = 0 
+                rospy.loginfo(f"{self.auv_name} is in {self.ds_name}, use (undock) action to exit the DS")
+            elif self.dock_attempt==2:
+                self.dock_attempt = 0
+                rospy.loginfo(f"{self.auv_name} docking failed {self.ds_name}")
+                self.send("failure")
+            else:      
+                rospy.loginfo(f"{self.auv_name} docking attempt failed {self.ds_name}")
+                self.dock_attempt += 1
+                self.send("rehome") 
         
 
     def on_exit_in_ds(self):
@@ -254,23 +273,7 @@ class DockingServer(StateMachine):
         thrusters_off = rospy.ServiceProxy(f"/{self.auv_name}/controller/disable_thrusters", Trigger)
         rospy.loginfo(f"Thrusters Disabled {thrusters_off()}")
     
-    def thrusters_on(self):
-        thrusters_on = rospy.ServiceProxy(f"/{self.auv_name}/controller/enable_thrusters", Trigger)
-        rospy.loginfo(f"Thrusters enabled {thrusters_on()}")
-
-    def b_T_ds_msg(self,data):
-        value = np.array([
-            data.pose.pose.position.x,
-            data.pose.pose.position.y,
-            data.pose.pose.position.z,
-            data.pose.pose.orientation.x,
-            data.pose.pose.orientation.y,
-            data.pose.pose.orientation.z,
-            data.pose.pose.orientation.w
-        ],dtype=float)
-
-        self.b_T_ds = self.quat_to_tf(value)
-
+    def thrusters_on(self):self.new_coordinates[3]
     def AUV_odometry(self, data):
         # if not isinstance(self.nav_ned_T_b, np.ndarray): 
         #     print("Odom Recieved")
@@ -290,7 +293,7 @@ class DockingServer(StateMachine):
         self.new_coordinates[0] = self.ds_north
         self.new_coordinates[1] = self.ds_east
         self.new_coordinates[2] = self.ds_down - z_axis
-        self.new_coordinates[3] = 0.0 # this value changes based on the docking orientation in Radian
+        self.new_coordinates[3] = self.ds_yaw # this value changes based on the docking orientation in Radian
 
         self.ned_target_pose = self.quat_to_tf(np.array([self.new_coordinates[0],
                                                          self.new_coordinates[1],
