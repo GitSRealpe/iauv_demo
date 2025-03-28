@@ -60,7 +60,7 @@ class DockingServer(StateMachine):
         self.new_coordinates = np.array([0.0,0.0,0.0,0.0, 0.2,0.2,0.2,0.1]) #x,y,z,yaw and tolarences set to 0.03
         self.nav_ned_T_b = None
         # subscribe
-        self.b_T_ds_markers = rospy.Subscriber(f'/{self.ds_name}/body_ds_pose',PoseWithCovarianceStamped,self.b_T_ds_msg, queue_size=1)
+        # self.b_T_ds_markers = rospy.Subscriber(f'/{self.ds_name}/body_ds_pose',PoseWithCovarianceStamped,self.b_T_ds_msg, queue_size=1)
         self.waypoint_display = rospy.Publisher(f'/{self.ds_name}/waypoint_display',PoseWithCovarianceStamped,queue_size=1)
         self.robot_pose = rospy.Subscriber(f"/{self.auv_name}/navigator/odometry",Odometry,self.AUV_odometry)
 
