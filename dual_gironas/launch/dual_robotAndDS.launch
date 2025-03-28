@@ -75,7 +75,6 @@
         <param name="ds_distance_step" value="$(arg ds_distance_step)"/>
     </node>
 
-
     <!-- RViz -->
     <node if="$(arg enable_rviz)" pkg="rviz" type="rviz" name="rviz"
         args="-d $(find iauv_description)/config/dual.rviz"/>
